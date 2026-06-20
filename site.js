@@ -35,7 +35,9 @@ export const TopupData = {
     gta5: { name: "GTA 5", item: "Premium Edition Game Key", logo: "https://crystalpng.com/wp-content/uploads/2025/06/GTA-5.png", page: "gta5.html", description: "GTA 5 Premium Edition activation key for Rockstar Games Launcher, delivered to your active email after verification.", noGameId: true, bundles: [{ label: "GTA 5 Premium Edition (Game Key)", amount: 1500, originalAmount: 2499 }] },
     forza5: { name: "Forza Horizon 5", item: "PC/XBOX Live Key", logo: "https://upload.wikimedia.org/wikipedia/en/8/86/Forza_Horizon_5_cover_art.jpg", page: "forza-horizon-5.html", description: "Forza Horizon 5 PC/XBOX Live activation key delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Forza Horizon 5 PC/XBOX Live Key", amount: 3500, originalAmount: 7646 }] },
     forza6: { name: "Forza Horizon 6", item: "Standard Edition XBOX Live Key", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Forza_Horizon_6_key_art.jpeg/250px-Forza_Horizon_6_key_art.jpeg", page: "forza-horizon-6.html", description: "Forza Horizon 6 Standard Edition for Windows/Xbox Series X/S, delivered as an XBOX Live key.", noGameId: true, bundles: [{ label: "Forza Horizon 6 Standard Edition (Windows/Xbox Series X/S) XBOX Live Key", amount: 5300, originalAmount: 5499 }] },
-    residentevil: { name: "Resident Evil Requiem", item: "Xbox Series X/S Xbox Live Key", logo: "https://wallpapercave.com/wp/wp15649795.jpg", page: "resident-evil-requiem.html", description: "Resident Evil Requiem for Xbox Series X/S, delivered as an Xbox Live activation key.", noGameId: true, bundles: [{ label: "Resident Evil Requiem (Xbox Series X/S) Xbox Live Key", amount: 5550, originalAmount: 6268 }] }
+    residentevil: { name: "Resident Evil Requiem", item: "Xbox Series X/S Xbox Live Key", logo: "https://wallpapercave.com/wp/wp15649795.jpg", page: "resident-evil-requiem.html", description: "Resident Evil Requiem for Xbox Series X/S, delivered as an Xbox Live activation key.", noGameId: true, bundles: [{ label: "Resident Evil Requiem (Xbox Series X/S) Xbox Live Key", amount: 5550, originalAmount: 6268 }] },
+    fallout4: { name: "Fallout 4", item: "Steam PC Key India", logo: "https://images7.alphacoders.com/599/thumb-1920-599168.png", page: "fallout-4.html", description: "Fallout 4 Steam activation key for PC in India, delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Fallout 4 Steam (PC) Key India", amount: 600, originalAmount: 1000 }] },
+    raji: { name: "Raji: An Ancient Epic", item: "Steam Key Global", logo: "https://sm.ign.com/ign_in/cover/r/raji-an-an/raji-an-ancient-epic_te44.jpg", page: "raji-an-ancient-epic.html", description: "Raji: An Ancient Epic global Steam activation key delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Raji: An Ancient Epic Steam Key Global", amount: 200, originalAmount: 600 }] }
   }
 };
 
@@ -388,7 +390,7 @@ function readLocalOrders() {
   }
 }
 function navHtml(active) {
-  const nav = [["index", "Home", "index.html"], ["freefire", "Free Fire", "freefire.html"], ["bgmi", "BGMI", "bgmi.html"], ["pubg", "PUBG", "pubg.html"], ["valorant", "Valorant", "valorant.html"], ["minecraft", "Minecoins", "minecraft.html"], ["minecraftpc", "Minecraft PC", "minecraft-pc.html"], ["gta5", "GTA 5", "gta5.html"], ["forza5", "Forza Horizon 5", "forza-horizon-5.html"], ["forza6", "Forza Horizon 6", "forza-horizon-6.html"], ["residentevil", "Resident Evil", "resident-evil-requiem.html"]];
+  const nav = [["index", "Home", "index.html"], ["freefire", "Free Fire", "freefire.html"], ["bgmi", "BGMI", "bgmi.html"], ["pubg", "PUBG", "pubg.html"], ["valorant", "Valorant", "valorant.html"], ["minecraft", "Minecoins", "minecraft.html"], ["minecraftpc", "Minecraft PC", "minecraft-pc.html"], ["gta5", "GTA 5", "gta5.html"], ["fallout4", "Fallout 4", "fallout-4.html"], ["forza5", "Forza Horizon 5", "forza-horizon-5.html"], ["forza6", "Forza Horizon 6", "forza-horizon-6.html"], ["raji", "Raji", "raji-an-ancient-epic.html"], ["residentevil", "Resident Evil", "resident-evil-requiem.html"]];
   return nav.map(([key, label, href]) => `<a class="${active === key ? "active" : ""}" href="${href}">${label}</a>`).join("");
 }
 
@@ -560,7 +562,9 @@ export function initCatalogFilters() {
     gta5: "key",
     forza5: "key",
     forza6: "key",
-    residentevil: "key"
+    residentevil: "key",
+    fallout4: "key",
+    raji: "key"
   };
   const requestedFilter = new URLSearchParams(window.location.search).get("filter");
   let activeFilter = ["all", "topup", "key"].includes(requestedFilter) ? requestedFilter : "all";
@@ -710,9 +714,9 @@ export function initRedeem() {
   const button = document.querySelector("[data-redeem]");
   if (!button) return;
   const rewards = [
-    { coins: 400, value: 10 }, { coins: 600, value: 15 }, { coins: 800, value: 20 },
-    { coins: 1000, value: 25 }, { coins: 1200, value: 30 }, { coins: 2000, value: 50 },
-    { coins: 4000, value: 100 }
+    { coins: 300, value: 5 }, { coins: 600, value: 10 }, { coins: 900, value: 15 },
+    { coins: 1200, value: 20 }, { coins: 1500, value: 25 }, { coins: 1800, value: 30 },
+    { coins: 3000, value: 50 }, { coins: 6000, value: 100 }
   ];
   const redeemImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9fmWCNiCKZE3WjAsFAWneSLmBNl_J7K3FczQXzqvkwQ&s=10";
 
