@@ -114,3 +114,71 @@
     animation: none;
   }
 }
+
+/* Screenshot-style product hero backgrounds for every game page. */
+.game-hero,
+.key-product-page .gta-product-hero,
+.gta-page:not(.key-product-page) .gta-product-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    linear-gradient(180deg, rgba(238, 244, 243, 0.20) 0%, rgba(7, 13, 18, 0.58) 34%, rgba(3, 8, 13, 0.96) 100%),
+    var(--product-bg, url('BGimage.svg.jpg')) center / cover no-repeat;
+}
+
+.game-hero::before,
+.key-product-page .gta-product-hero::before,
+.gta-page:not(.key-product-page) .gta-product-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 50% 24%, rgba(255,255,255,.22), transparent 22%),
+    linear-gradient(180deg, rgba(255,255,255,.14), rgba(2,7,12,.72) 54%, #03080d 100%);
+  pointer-events: none;
+}
+
+.game-hero .game-logo-panel,
+.gta-product-hero .gta-logo-wrap {
+  box-shadow: 0 24px 76px rgba(0, 0, 0, .48);
+}
+
+.game-hero .game-logo-panel {
+  overflow: hidden;
+  background: rgba(8, 14, 20, .72);
+  backdrop-filter: blur(5px);
+}
+
+.game-hero .game-logo-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  font-weight: 900;
+}
+
+.card-price s {
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.card-price strong {
+  color: #dff8ee;
+  font-size: 1.15rem;
+}
+
+.card-price span {
+  color: var(--green);
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
