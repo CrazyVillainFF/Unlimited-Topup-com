@@ -550,6 +550,7 @@ function bundleSummary(bundle, apply) {
 export function initCatalogFilters() {
   const search = document.querySelector("[data-game-search]");
   const filterButtons = [...document.querySelectorAll("[data-game-filter]")];
+  const platformButtons = [...document.querySelectorAll("[data-platform-filter]")];
   const cards = [...document.querySelectorAll(".game-grid .game-card")];
   const empty = document.querySelector("[data-catalog-empty]");
   if (!search || !filterButtons.length || !cards.length) return;
@@ -570,21 +571,47 @@ export function initCatalogFilters() {
     assassinscreed2: "key",
     spiderman: "key"
   };
-  const requestedFilter = new URLSearchParams(window.location.search).get("filter");
+  const platformCategories = {
+    forza5: "xbox microsoft",
+    forza6: "xbox microsoft",
+    gta5: "rockstar",
+    minecraftpc: "microsoft",
+    residentevil: "xbox",
+    fallout4: "steam",
+    raji: "steam",
+    assassinscreed2: "ubisoft",
+    spiderman: "steam"
+  };
+  const platformLabels = {
+    steam: "Steam",
+    xbox: "Xbox",
+    microsoft: "Microsoft",
+    rockstar: "Rockstar",
+    ubisoft: "Ubisoft"
+  };
+  const params = new URLSearchParams(window.location.search);
+  const requestedFilter = params.get("filter");
+  const requestedPlatform = params.get("platform");
   let activeFilter = ["all", "topup", "key"].includes(requestedFilter) ? requestedFilter : "all";
+  let activePlatform = ["all", ...Object.keys(platformLabels)].includes(requestedPlatform) ? requestedPlatform : "all";
 
   cards.forEach((card) => {
     const action = card.querySelector("[data-open-order]");
-    card.dataset.category = keyCategories[action?.dataset.openOrder] || "topup";
+    const key = action?.dataset.openOrder;
+    const platform = platformCategories[key] || "mobile";
+    card.dataset.category = keyCategories[key] || "topup";
+    card.dataset.platform = platform;
+    card.dataset.searchText = `${card.textContent} ${platform} ${platform.split(" ").map((name) => platformLabels[name] || name).join(" ")}`.toLowerCase();
   });
 
   const apply = () => {
     const query = search.value.trim().toLowerCase();
     let visible = 0;
     cards.forEach((card) => {
-      const matchesText = !query || card.textContent.toLowerCase().includes(query);
+      const matchesText = !query || card.dataset.searchText.includes(query);
       const matchesFilter = activeFilter === "all" || card.dataset.category === activeFilter;
-      const show = matchesText && matchesFilter;
+      const matchesPlatform = activePlatform === "all" || card.dataset.platform.split(" ").includes(activePlatform);
+      const show = matchesText && matchesFilter && matchesPlatform;
       card.hidden = !show;
       if (show) visible += 1;
     });
@@ -602,8 +629,23 @@ export function initCatalogFilters() {
     apply();
   }));
 
+  platformButtons.forEach((button) => button.addEventListener("click", () => {
+    activePlatform = button.dataset.platformFilter;
+    platformButtons.forEach((item) => {
+      const selected = item === button;
+      item.classList.toggle("active", selected);
+      item.setAttribute("aria-pressed", String(selected));
+    });
+    apply();
+  }));
+
   filterButtons.forEach((button) => {
     const selected = button.dataset.gameFilter === activeFilter;
+    button.classList.toggle("active", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
+  platformButtons.forEach((button) => {
+    const selected = button.dataset.platformFilter === activePlatform;
     button.classList.toggle("active", selected);
     button.setAttribute("aria-pressed", String(selected));
   });
