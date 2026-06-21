@@ -551,6 +551,9 @@ export function initCatalogFilters() {
   const search = document.querySelector("[data-game-search]");
   const filterButtons = [...document.querySelectorAll("[data-game-filter]")];
   const platformButtons = [...document.querySelectorAll("[data-platform-filter]")];
+  const platformToggle = document.querySelector("[data-platform-filter-toggle]");
+  const platformOptions = document.querySelector("[data-platform-filter-options]");
+  const platformToggleLabel = document.querySelector("[data-platform-filter-label]");
   const cards = [...document.querySelectorAll(".game-grid .game-card")];
   const empty = document.querySelector("[data-catalog-empty]");
   if (!search || !filterButtons.length || !cards.length) return;
@@ -604,6 +607,18 @@ export function initCatalogFilters() {
     card.dataset.searchText = `${card.textContent} ${platform} ${platform.split(" ").map((name) => platformLabels[name] || name).join(" ")}`.toLowerCase();
   });
 
+  const setPlatformOptionsOpen = (open) => {
+    if (!platformOptions || !platformToggle) return;
+    platformOptions.hidden = !open;
+    platformToggle.classList.toggle("open", open);
+    platformToggle.setAttribute("aria-expanded", String(open));
+  };
+
+  const updatePlatformToggleLabel = () => {
+    if (!platformToggleLabel) return;
+    platformToggleLabel.textContent = activePlatform === "all" ? "Platform" : platformLabels[activePlatform] || "Platform";
+  };
+
   const apply = () => {
     const query = search.value.trim().toLowerCase();
     let visible = 0;
@@ -629,6 +644,16 @@ export function initCatalogFilters() {
     apply();
   }));
 
+  platformToggle?.addEventListener("click", () => {
+    setPlatformOptionsOpen(platformOptions?.hidden !== false);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!platformOptions || !platformToggle || platformOptions.hidden) return;
+    if (event.target.closest("[data-platform-filter-options]") || event.target.closest("[data-platform-filter-toggle]")) return;
+    setPlatformOptionsOpen(false);
+  });
+
   platformButtons.forEach((button) => button.addEventListener("click", () => {
     activePlatform = button.dataset.platformFilter;
     platformButtons.forEach((item) => {
@@ -636,6 +661,8 @@ export function initCatalogFilters() {
       item.classList.toggle("active", selected);
       item.setAttribute("aria-pressed", String(selected));
     });
+    updatePlatformToggleLabel();
+    setPlatformOptionsOpen(false);
     apply();
   }));
 
@@ -649,6 +676,8 @@ export function initCatalogFilters() {
     button.classList.toggle("active", selected);
     button.setAttribute("aria-pressed", String(selected));
   });
+  updatePlatformToggleLabel();
+  setPlatformOptionsOpen(activePlatform !== "all");
   apply();
 }
 
