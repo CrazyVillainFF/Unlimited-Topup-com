@@ -33,6 +33,7 @@ export const TopupData = {
     minecraft: { name: "Minecraft", item: "Minecoins", logo: "https://thumbs.dreamstime.com/b/minecraft-logo-online-game-dirt-block-illustrations-concept-design-isolated-186775550.jpg", background: "https://i.tlauncher.org/images/26.2-Snapshot4-preview.png", page: "minecraft.html", description: "Minecraft Minecoins packs with simple checkout. No game ID number required.", noGameId: true, bundles: [{ label: "1720 Minecoins", amount: 680, originalAmount: 735 }, { label: "3500 Minecoins", amount: 1389, originalAmount: 1457 }] },
     minecraftpc: { name: "Minecraft", item: "Java & Bedrock Edition PC Key", logo: "https://thumbs.dreamstime.com/b/minecraft-logo-online-game-dirt-block-illustrations-concept-design-isolated-186775550.jpg?w=768", background: "https://4kwallpapers.com/images/walls/thumbs_2t/26078.jpg", page: "minecraft-pc.html", description: "Minecraft: Java & Bedrock Edition activation key for PC, delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Minecraft: Java & Bedrock Edition (PC) Activation Key", amount: 1900, originalAmount: 2605 }] },
     gta5: { name: "GTA 5", item: "Premium Edition Game Key", logo: "https://crystalpng.com/wp-content/uploads/2025/06/GTA-5.png", background: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1WEskcbQFCeO1t95xNp6lwvWq65M04VpJmR1MflZyoY7YD9z4jXj6Ekp8&s=10", page: "gta5.html", description: "GTA 5 Premium Edition activation key for Rockstar Games Launcher, delivered to your active email after verification.", noGameId: true, bundles: [{ label: "GTA 5 Premium Edition (Game Key)", amount: 1500, originalAmount: 2499 }] },
+    gta6: { name: "GTA 6", item: "Coming Soon", logo: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5cd1f6af-ed85-437b-ba2a-131693b7f3d8/dgj3kny-2ee3a0e9-ee94-4add-b61b-7d99f2858614.png/v1/fill/w_894,h_894,q_70,strp/gta_6_logo__4k__by_giga_bitten_dgj3kny-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiIvZi81Y2QxZjZhZi1lZDg1LTQzN2ItYmEyYS0xMzE2OTNiN2YzZDgvZGdqM2tueS0yZWUzYTBlOS1lZTk0LTRhZGQtYjYxYi03ZDk5ZjI4NTg2MTQucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.oeJMQorOHwI3QrVAfsr1sT5vUYpMUgWBITtI3XJM_Po", background: "https://www.rockstargames.com/VI/_next/static/media/Jason_and_Lucia_03_landscape.0419q._86ukpt.jpg?akim=1&imdensity=1&imwidth=1280", page: "gta6.html", description: "Grand Theft Auto VI notifications are opening soon. Join the alert list and we will contact you when GTA 6 is available.", noGameId: true, comingSoon: true, bundles: [] },
     forza5: { name: "Forza Horizon 5", item: "PC/XBOX Live Key", logo: "https://upload.wikimedia.org/wikipedia/en/8/86/Forza_Horizon_5_cover_art.jpg", background: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2i6WhUs0fzU9ntn2TPVFAHKC1IZenANX7R0ZSU0xhMYAvWeltAW1QaLsk&s=10", page: "forza-horizon-5.html", description: "Forza Horizon 5 PC/XBOX Live activation key delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Forza Horizon 5 PC/XBOX Live Key", amount: 3500, originalAmount: 7646 }] },
     forza6: { name: "Forza Horizon 6", item: "Standard Edition XBOX Live Key", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Forza_Horizon_6_key_art.jpeg/250px-Forza_Horizon_6_key_art.jpeg", background: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ7VPE-TXWWh4wFk-n0d8TOZDdvmEAxnH8DeJ-JLUvNNXOqnLMizIbYX7g&s=10", page: "forza-horizon-6.html", description: "Forza Horizon 6 Standard Edition for Windows/Xbox Series X/S, delivered as an XBOX Live key.", noGameId: true, bundles: [{ label: "Forza Horizon 6 Standard Edition (Windows/Xbox Series X/S) XBOX Live Key", amount: 5300, originalAmount: 5499 }] },
     residentevil: { name: "Resident Evil Requiem", item: "Xbox Series X/S Xbox Live Key", logo: "https://wallpapercave.com/wp/wp15649795.jpg", background: "https://wallpapercave.com/wp/wp15649778.png", page: "resident-evil-requiem.html", description: "Resident Evil Requiem for Xbox Series X/S, delivered as an Xbox Live activation key.", noGameId: true, bundles: [{ label: "Resident Evil Requiem (Xbox Series X/S) Xbox Live Key", amount: 5550, originalAmount: 6268 }] },
@@ -392,7 +393,7 @@ function readLocalOrders() {
   }
 }
 function navHtml(active) {
-  const nav = [["index", "Home", "index.html"], ["freefire", "Free Fire", "freefire.html"], ["bgmi", "BGMI", "bgmi.html"], ["pubg", "PUBG", "pubg.html"], ["valorant", "Valorant", "valorant.html"], ["minecraft", "Minecoins", "minecraft.html"], ["minecraftpc", "Minecraft PC", "minecraft-pc.html"], ["gta5", "GTA 5", "gta5.html"], ["assassinscreed2", "Assassin's Creed II", "assassins-creed-2.html"], ["fallout4", "Fallout 4", "fallout-4.html"], ["forza5", "Forza Horizon 5", "forza-horizon-5.html"], ["forza6", "Forza Horizon 6", "forza-horizon-6.html"], ["raji", "Raji", "raji-an-ancient-epic.html"], ["residentevil", "Resident Evil", "resident-evil-requiem.html"], ["spiderman", "Spider-Man", "spider-man-remastered.html"]];
+  const nav = [["index", "Home", "index.html"], ["freefire", "Free Fire", "freefire.html"], ["bgmi", "BGMI", "bgmi.html"], ["pubg", "PUBG", "pubg.html"], ["valorant", "Valorant", "valorant.html"], ["minecraft", "Minecoins", "minecraft.html"], ["minecraftpc", "Minecraft PC", "minecraft-pc.html"], ["gta5", "GTA 5", "gta5.html"], ["gta6", "GTA 6", "gta6.html"], ["assassinscreed2", "Assassin's Creed II", "assassins-creed-2.html"], ["fallout4", "Fallout 4", "fallout-4.html"], ["forza5", "Forza Horizon 5", "forza-horizon-5.html"], ["forza6", "Forza Horizon 6", "forza-horizon-6.html"], ["raji", "Raji", "raji-an-ancient-epic.html"], ["residentevil", "Resident Evil", "resident-evil-requiem.html"], ["spiderman", "Spider-Man", "spider-man-remastered.html"]];
   return nav.map(([key, label, href]) => `<a class="${active === key ? "active" : ""}" href="${href}">${label}</a>`).join("");
 }
 
@@ -566,6 +567,7 @@ export function initCatalogFilters() {
     minecraft: "topup",
     minecraftpc: "key",
     gta5: "key",
+    gta6: "key",
     forza5: "key",
     forza6: "key",
     residentevil: "key",
@@ -578,6 +580,7 @@ export function initCatalogFilters() {
     forza5: "xbox microsoft",
     forza6: "xbox microsoft",
     gta5: "rockstar",
+    gta6: "rockstar",
     minecraftpc: "microsoft",
     residentevil: "xbox",
     fallout4: "steam",
@@ -600,7 +603,7 @@ export function initCatalogFilters() {
 
   cards.forEach((card) => {
     const action = card.querySelector("[data-open-order]");
-    const key = action?.dataset.openOrder;
+    const key = action?.dataset.openOrder || card.dataset.productKey;
     const platform = platformCategories[key] || "mobile";
     card.dataset.category = keyCategories[key] || "topup";
     card.dataset.platform = platform;
@@ -784,6 +787,53 @@ export function initGamePage(gameKey) {
     showPaymentPanel(order);
   });
   update();
+}
+
+export async function saveGta6NotificationRequest({ name, email, mobile }) {
+  const cleanName = String(name || "").trim();
+  const cleanEmail = String(email || "").trim();
+  const cleanMobile = String(mobile || "").trim();
+  if (!cleanName) throw new Error("Please enter your name.");
+  if (!emailValid(cleanEmail)) throw new Error("Please enter a valid email address.");
+  if (!/^[+\d][\d\s()-]{7,18}$/.test(cleanMobile)) throw new Error("Please enter a valid mobile number.");
+  const notificationRef = push(dbRef(database, "gta6Notifications"));
+  await withTimeout(set(notificationRef, {
+    name: cleanName,
+    email: cleanEmail,
+    mobile: cleanMobile,
+    product: "GTA 6",
+    status: "Notification Enabled",
+    createdAt: serverTimestamp()
+  }), "Could not save your notification request in Firebase Realtime Database.");
+}
+
+export function initGta6NotificationPage() {
+  const form = document.querySelector("[data-gta6-notification-form]");
+  if (!form) return;
+  const name = form.querySelector("[data-notify-name]");
+  const email = form.querySelector("[data-notify-email]");
+  const mobile = form.querySelector("[data-notify-mobile]");
+  const submit = form.querySelector("button[type='submit']");
+  const status = form.querySelector("[data-notify-status]");
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    submit.disabled = true;
+    submit.textContent = "Turning on...";
+    status.textContent = "Saving your request...";
+    status.classList.remove("success", "error");
+    try {
+      await saveGta6NotificationRequest({ name: name.value, email: email.value, mobile: mobile.value });
+      form.reset();
+      status.textContent = "Notification enabled! We will inform you when GTA 6 is available.";
+      status.classList.add("success");
+    } catch (error) {
+      status.textContent = readableOrderError(error);
+      status.classList.add("error");
+    } finally {
+      submit.disabled = false;
+      submit.textContent = "Turn On Notification";
+    }
+  });
 }
 
 export function initRedeem() {
