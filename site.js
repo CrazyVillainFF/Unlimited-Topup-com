@@ -551,6 +551,9 @@ function bundleSummary(bundle, apply) {
 export function initCatalogFilters() {
   const search = document.querySelector("[data-game-search]");
   const filterButtons = [...document.querySelectorAll("[data-game-filter]")];
+  const platformButtons = [...document.querySelectorAll("[data-platform-filter]")];
+  const platformToggle = document.querySelector("[data-platform-filter-toggle]");
+  const platformOptions = document.querySelector("[data-platform-filter-options]");
   const cards = [...document.querySelectorAll(".game-grid .game-card")];
   const empty = document.querySelector("[data-catalog-empty]");
   if (!search || !filterButtons.length || !cards.length) return;
@@ -573,11 +576,38 @@ export function initCatalogFilters() {
   };
   const requestedFilter = new URLSearchParams(window.location.search).get("filter");
   let activeFilter = ["all", "topup", "key"].includes(requestedFilter) ? requestedFilter : "all";
+  let activePlatform = "all";
+
+  const keyPlatforms = {
+    minecraftpc: "microsoft",
+    gta5: "rockstar",
+    gta6: "rockstar",
+    forza5: "xbox",
+    forza6: "xbox",
+    residentevil: "xbox",
+    fallout4: "steam",
+    raji: "steam",
+    assassinscreed2: "ubisoft",
+    spiderman: "steam"
+  };
 
   cards.forEach((card) => {
     const action = card.querySelector("[data-open-order]");
-    card.dataset.category = keyCategories[action?.dataset.openOrder] || "topup";
+    const productKey = action?.dataset.openOrder || card.dataset.productKey || "";
+    card.dataset.category = keyCategories[productKey] || "topup";
+    card.dataset.platform = keyPlatforms[productKey] || "all";
   });
+
+  if (platformOptions && platformToggle) {
+    platformOptions.hidden = true;
+    platformToggle.setAttribute("aria-expanded", "false");
+    platformToggle.addEventListener("click", () => {
+      const willOpen = platformOptions.hidden;
+      platformOptions.hidden = !willOpen;
+      platformToggle.setAttribute("aria-expanded", String(willOpen));
+      platformToggle.setAttribute("aria-label", willOpen ? "Hide platform filters" : "Show platform filters");
+    });
+  }
 
   const apply = () => {
     const query = search.value.trim().toLowerCase();
@@ -585,7 +615,8 @@ export function initCatalogFilters() {
     cards.forEach((card) => {
       const matchesText = !query || card.textContent.toLowerCase().includes(query);
       const matchesFilter = activeFilter === "all" || card.dataset.category === activeFilter;
-      const show = matchesText && matchesFilter;
+      const matchesPlatform = activePlatform === "all" || card.dataset.platform === activePlatform;
+      const show = matchesText && matchesFilter && matchesPlatform;
       card.hidden = !show;
       if (show) visible += 1;
     });
@@ -596,6 +627,16 @@ export function initCatalogFilters() {
   filterButtons.forEach((button) => button.addEventListener("click", () => {
     activeFilter = button.dataset.gameFilter;
     filterButtons.forEach((item) => {
+      const selected = item === button;
+      item.classList.toggle("active", selected);
+      item.setAttribute("aria-pressed", String(selected));
+    });
+    apply();
+  }));
+
+  platformButtons.forEach((button) => button.addEventListener("click", () => {
+    activePlatform = button.dataset.platformFilter;
+    platformButtons.forEach((item) => {
       const selected = item === button;
       item.classList.toggle("active", selected);
       item.setAttribute("aria-pressed", String(selected));
