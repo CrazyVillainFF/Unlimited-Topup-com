@@ -47,7 +47,7 @@
 
 .gta-product-hero{padding:46px 0 30px;background:linear-gradient(180deg,rgba(3,10,15,.25),rgba(3,10,15,.82))}.gta-product-grid{display:grid;grid-template-columns:280px minmax(0,1fr);gap:34px;align-items:center}.gta-logo-wrap{aspect-ratio:1;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.96);display:grid;place-items:center;padding:28px;box-shadow:var(--shadow)}.gta-logo-wrap img{width:100%;height:100%;object-fit:contain}.gta-product-copy h1{font-size:clamp(2.2rem,5vw,4.4rem);margin:8px 0 16px}.gta-product-copy h1 span{display:block;color:var(--muted);font-size:.42em;margin-top:9px}.gta-product-copy p{max-width:700px;color:#d0d8e3;line-height:1.7}.gta-price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:24px 0}.gta-price s{color:var(--muted);font-size:1.25rem}.gta-price strong{font-size:2.35rem;color:#dff8ee}.gta-price span{color:var(--green);font-weight:900}.gta-buy{background:linear-gradient(135deg,#31d09f,#1687d9);border:0;color:#031813;min-width:180px}.gta-gallery-section{padding:32px 0}.gta-gallery{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;padding:0 max(16px,calc((100vw - 1180px)/2)) 18px}.gta-gallery-track{display:flex;gap:16px;width:max-content;animation:gta-scroll 32s linear infinite alternate}.gta-gallery:hover .gta-gallery-track,.gta-gallery:focus .gta-gallery-track{animation-play-state:paused}.gta-gallery img{width:min(72vw,540px);aspect-ratio:16/9;object-fit:cover;border-radius:8px;border:1px solid var(--line);scroll-snap-align:start;box-shadow:0 16px 42px rgba(0,0,0,.32)}@keyframes gta-scroll{from{transform:translateX(0)}to{transform:translateX(-25%)}}.gta-checkout-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,.8fr);gap:24px;align-items:start}.gta-instructions{margin-top:22px;border:1px solid var(--line);border-radius:8px;background:rgba(16,24,33,.9);padding:22px}.gta-instructions h2{color:#fff3c4}.gta-instructions ol{margin:0;padding-left:22px;color:#d7e1eb;line-height:1.75}.gta-instructions a{color:#70d7ff}.gta-page .plan-grid{grid-template-columns:1fr}.gta-page .plan-card{min-height:104px}.gta-page .plan-card img{width:76px;height:76px}.gta-page .plan-card s{color:var(--muted);margin-right:8px}@media(max-width:760px){.gta-product-grid,.gta-checkout-grid{grid-template-columns:1fr}.gta-logo-wrap{width:min(220px,65vw);margin:0 auto}.gta-product-copy{text-align:center}.gta-product-copy p{margin-left:auto;margin-right:auto}.gta-price{justify-content:center}.gta-gallery-track{animation:none}.gta-gallery img{width:84vw}.gta-instructions{padding:18px}}
 
-.catalog-toolbar{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin:0 0 22px}.catalog-search{position:relative;display:block;flex:1;max-width:420px}.catalog-search .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:1rem;pointer-events:none}.catalog-search input{padding-left:44px;background:rgba(16,24,33,.94);min-height:50px}.catalog-filter-group{display:grid;gap:10px;justify-items:end}.catalog-filters{display:flex;align-items:center;gap:8px;padding:4px;border:1px solid var(--line);border-radius:8px;background:rgba(16,24,33,.9)}.platform-filter-wrap{position:relative;display:grid;justify-items:end}.platform-filter-toggle{border:1px solid var(--line);background:rgba(16,24,33,.94)}.platform-filter-toggle.open,.platform-filter-toggle:hover{color:#06120e;background:linear-gradient(135deg,var(--green),#35b7de)}.platform-filters{position:absolute;right:0;top:calc(100% + 8px);z-index:12;width:max-content;max-width:min(720px,calc(100vw - 32px));flex-wrap:wrap;justify-content:flex-end;box-shadow:0 18px 55px rgba(0,0,0,.34)}.platform-filters[hidden]{display:none!important}.catalog-filter{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:40px;padding:8px 14px;border:0;border-radius:6px;background:transparent;color:var(--muted);font-weight:800;white-space:nowrap}.catalog-filter img{width:22px;height:22px;object-fit:cover;border-radius:5px;box-shadow:0 0 0 1px rgba(255,255,255,.16)}.catalog-filter:hover{color:var(--text);background:rgba(255,255,255,.06)}.catalog-filter.active{color:#06120e;background:linear-gradient(135deg,var(--green),#35b7de)}.game-card[hidden]{display:none}.catalog-empty{margin-bottom:22px;border:1px dashed var(--line);border-radius:8px;padding:28px;text-align:center;background:rgba(16,24,33,.7)}.catalog-empty strong,.catalog-empty span{display:block}.catalog-empty span{margin-top:6px;color:var(--muted)}@media(max-width:900px){.catalog-toolbar{align-items:stretch;flex-direction:column}.catalog-search{max-width:none}.catalog-filter-group{justify-items:stretch}.platform-filter-wrap{justify-items:stretch}.platform-filters{left:0;right:auto;justify-content:flex-start}}@media(max-width:700px){.catalog-filters{display:grid;grid-template-columns:repeat(3,1fr)}.platform-filters{grid-template-columns:repeat(2,1fr);width:100%;max-width:none}.catalog-filter{padding:8px 6px;font-size:.82rem}}
+.catalog-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 22px}.catalog-search{position:relative;display:block;flex:1;max-width:520px}.catalog-search .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:1rem;pointer-events:none}.catalog-search input{padding-left:44px;background:rgba(16,24,33,.94);min-height:50px}.catalog-filters{display:flex;align-items:center;gap:8px;padding:4px;border:1px solid var(--line);border-radius:8px;background:rgba(16,24,33,.9)}.catalog-filter{min-height:40px;padding:8px 14px;border:0;border-radius:6px;background:transparent;color:var(--muted);font-weight:800;white-space:nowrap}.catalog-filter:hover{color:var(--text);background:rgba(255,255,255,.06)}.catalog-filter.active{color:#06120e;background:linear-gradient(135deg,var(--green),#35b7de)}.game-card[hidden]{display:none}.catalog-empty{margin-bottom:22px;border:1px dashed var(--line);border-radius:8px;padding:28px;text-align:center;background:rgba(16,24,33,.7)}.catalog-empty strong,.catalog-empty span{display:block}.catalog-empty span{margin-top:6px;color:var(--muted)}@media(max-width:700px){.catalog-toolbar{align-items:stretch;flex-direction:column}.catalog-search{max-width:none}.catalog-filters{display:grid;grid-template-columns:repeat(3,1fr)}.catalog-filter{padding:8px 6px;font-size:.82rem}}
 
 /* Keep the UT Coin artwork compact anywhere it appears in controls. */
 .ut-coin-inline{display:inline-block!important;width:20px!important;height:20px!important;max-width:20px!important;object-fit:contain!important;flex:0 0 20px!important;border-radius:50%}
@@ -115,175 +115,49 @@
   }
 }
 
-/* Screenshot-style product hero backgrounds for every game page. */
-.game-hero,
-.key-product-page .gta-product-hero,
-.gta-page:not(.key-product-page) .gta-product-hero {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  background:
-    linear-gradient(180deg, rgba(238, 244, 243, 0.20) 0%, rgba(7, 13, 18, 0.58) 34%, rgba(3, 8, 13, 0.96) 100%),
-    var(--product-bg, url('BGimage.svg.jpg')) center / cover no-repeat;
-}
-
-.game-hero::before,
-.key-product-page .gta-product-hero::before,
-.gta-page:not(.key-product-page) .gta-product-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(circle at 50% 24%, rgba(255,255,255,.22), transparent 22%),
-    linear-gradient(180deg, rgba(255,255,255,.14), rgba(2,7,12,.72) 54%, #03080d 100%);
-  pointer-events: none;
-}
-
-.game-hero .game-logo-panel,
-.gta-product-hero .gta-logo-wrap {
-  box-shadow: 0 24px 76px rgba(0, 0, 0, .48);
-}
-
-.game-hero .game-logo-panel {
-  overflow: hidden;
-  background: rgba(8, 14, 20, .72);
-  backdrop-filter: blur(5px);
-}
-
-.game-hero .game-logo-panel img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-price {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  font-weight: 900;
-}
-
-.card-price s {
-  color: var(--muted);
-  font-size: .92rem;
-}
-
-.card-price strong {
-  color: #dff8ee;
-  font-size: 1.15rem;
-}
-
-.card-price span {
-  color: var(--green);
-  font-size: .78rem;
-  text-transform: uppercase;
-  letter-spacing: .04em;
-}
-
-/* GTA 6 coming soon experience. */
-.coming-soon-card{overflow:hidden;background:linear-gradient(180deg,rgba(255,78,203,.12),rgba(16,24,33,.96))}.coming-soon-card img{background:linear-gradient(135deg,#ffe2f6,#fff7d1);padding:10px;object-fit:contain}.coming-soon-badge{position:absolute;top:14px;right:14px;z-index:3;display:inline-flex;align-items:center;min-height:30px;padding:5px 11px;border:1px solid rgba(255,255,255,.45);border-radius:999px;background:linear-gradient(135deg,#ff4ecb,#f7c948);color:#180915;font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;box-shadow:0 10px 28px rgba(255,78,203,.32);animation:coming-soon-float 2.6s ease-in-out infinite}.product-coming-soon-badge{position:static;width:max-content;margin-bottom:12px}.gta6-page{background:linear-gradient(180deg,rgba(3,7,12,.72),rgba(3,7,12,.96)),url('https://www.rockstargames.com/VI/_next/static/media/Jason_and_Lucia_02_landscape.0cosv-uzbpt91.jpg') center top/cover fixed}.gta6-hero{background:linear-gradient(90deg,rgba(4,10,17,.96),rgba(60,17,68,.62)),url('https://www.rockstargames.com/VI/_next/static/media/Jason_and_Lucia_03_landscape.0419q._86ukpt.jpg?akim=1&imdensity=1&imwidth=1280') center/cover}.gta6-logo-wrap{background:linear-gradient(135deg,#fff7d6,#ffd5f4);border-color:rgba(255,78,203,.42);transform:translateY(0);animation:gta6-card-rise .8s ease both}.gta6-page .gta-product-copy{animation:gta6-copy-rise .8s ease .08s both}.gta6-price strong{background:linear-gradient(135deg,#fff3c4,#ff8adf);-webkit-background-clip:text;background-clip:text;color:transparent}.gta6-gallery .gta-gallery-track{animation:gta-scroll 38s linear infinite alternate}.gta6-gallery img{object-position:center}.gta6-notify-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,.85fr);gap:24px;align-items:start}.gta6-notify-copy p{color:var(--muted);line-height:1.7;margin:0}.gta6-notify-card{position:relative;overflow:hidden}.gta6-notify-card:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,#ff4ecb,#f7c948,#31d09f)}.notify-status.success{border-color:rgba(49,208,159,.42);background:rgba(49,208,159,.13);color:#dff8ee}.notify-status.error{border-color:rgba(255,107,107,.42);background:rgba(255,107,107,.12);color:#ffd7d7}@keyframes coming-soon-float{50%{transform:translateY(-3px);box-shadow:0 14px 34px rgba(255,78,203,.46)}}@keyframes gta6-card-rise{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes gta6-copy-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}@media(max-width:760px){.gta6-notify-grid{grid-template-columns:1fr}.gta6-gallery .gta-gallery-track{animation:none}.coming-soon-badge{font-size:.68rem}}
-@media (prefers-reduced-motion: reduce){.coming-soon-badge,.gta6-logo-wrap,.gta6-page .gta-product-copy,.gta6-gallery .gta-gallery-track{animation:none}}
-
-/* Conflict resolution: full-bleed artwork while preserving logo-only assets. */
+/* Unified square artwork: crop oversized logos and remove white framing. */
+.quick-row img,
 .game-card > img,
-.featured-slide > img,
-.gta-logo-wrap img {
+.plan-card img {
   object-fit: cover;
+  object-position: center;
+  background: transparent;
+  padding: 0;
+  border: 0;
 }
 
-/* Logo assets need padding/contain treatment so text marks remain legible. */
-.game-card > img[src*="freefire"],
-.game-card > img[src*="pubg"],
-.game-card > img[src*="valorant-logo"],
-.game-card.coming-soon-card > img,
-.gta6-logo-wrap img {
-  object-fit: contain;
-}
-
-.game-card > img[src*="freefire"],
-.game-card > img[src*="pubg"],
-.game-card > img[src*="valorant-logo"] {
-  padding: 10px;
-  background: rgba(255, 255, 255, .96);
-}
-
-.gta6-hero .gta6-logo-wrap {
+.game-logo-panel {
+  aspect-ratio: 1 / 1;
+  min-height: 0;
   overflow: hidden;
   padding: 0;
+  background: #0b1118;
 }
 
-.gta6-hero .gta6-logo-wrap img {
+.game-logo-panel img {
   width: 100%;
   height: 100%;
-  padding: 24px;
-  background: linear-gradient(135deg, #fff7d6, #ffd5f4);
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
 }
 
-/* GTA 6 cards use Rockstar artwork as full-bleed image cards. */
-.game-card.coming-soon-card > img,
-.gta6-logo-wrap img {
+.gta-logo-wrap,
+.key-product-page .gta-logo-wrap,
+.resident-page .gta-logo-wrap {
+  width: min(100%, 1080px);
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  background: #0b1118;
+}
+
+.gta-logo-wrap img,
+.key-product-page .gta-logo-wrap img,
+.resident-page .gta-logo-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  padding: 0;
-  background: transparent;
-}
-
-.game-card.coming-soon-card > img {
-  min-height: 150px;
-}
-
-.gta6-hero .gta6-logo-wrap img {
-  padding: 0;
-  background: transparent;
-}
-
-/* GTA 6 card/detail logo sizing update. */
-.game-card-touch-link {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  border-radius: inherit;
-}
-
-.game-card .card-actions,
-.game-card .coming-soon-badge {
-  position: relative;
-  z-index: 2;
-}
-
-.game-card.coming-soon-card > img {
-  width: 96px;
-  height: 96px;
-  min-height: 0;
-  object-fit: contain;
-  padding: 8px;
-  background: rgba(255, 255, 255, .96);
-}
-
-.gta6-hero {
-  background:
-    linear-gradient(90deg, rgba(4, 10, 17, .96), rgba(60, 17, 68, .62)),
-    url('https://www.rockstargames.com/VI/_next/static/media/Jason_and_Lucia_01_landscape.12x2gvspcm_3m.jpg?akim=1&imdensity=1&imwidth=1280') center/cover;
-}
-
-.gta6-hero .gta6-logo-wrap {
-  padding: 24px;
-  background:
-    linear-gradient(180deg, rgba(5, 9, 14, .1), rgba(5, 9, 14, .45)),
-    url('https://www.rockstargames.com/VI/_next/static/media/Jason_and_Lucia_01_landscape.12x2gvspcm_3m.jpg?akim=1&imdensity=1&imwidth=1280') center/cover;
-}
-
-.gta6-hero .gta6-logo-wrap img {
-  width: min(150px, 70%);
-  height: auto;
-  aspect-ratio: 1;
-  object-fit: contain;
-  padding: 8px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, .96);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, .34);
+  object-position: center;
 }

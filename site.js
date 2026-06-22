@@ -1,4 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+﻿import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, updateProfile, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 import { getDatabase, ref as dbRef, push, serverTimestamp, onValue, update, set, get, runTransaction, query, orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-database.js";
 
@@ -26,21 +26,20 @@ export const TopupData = {
   cloudinaryUploadPreset: "UnlimitedTopUpo",
   adminEmails: ["unlimitedtopup001@gmail.com", "vishnubangaru001@gmail.com"],
   games: {
-    freefire: { name: "Free Fire", item: "Diamonds", logo: "freefire.svg.png", background: "https://dl.dir.freefiremobile.com/common/web_event/official2.ff.garena.all/20261/d0c5242292a393c0a61f92b6794bae4b.jpeg", page: "freefire.html", description: "Fast diamond packs and memberships for Free Fire accounts with UPI checkout.", bundles: [{ label: "100 Diamonds", amount: 79 }, { label: "310 Diamonds", amount: 240 }, { label: "520 Diamonds", amount: 399 }, { label: "1060 Diamonds", amount: 799 }, { label: "Weekly Membership", amount: 159 }, { label: "Monthly Membership", amount: 799 }] },
-    bgmi: { name: "BGMI", item: "UC", logo: "bgmi.svg.jpg", background: "https://sm.ign.com/ign_in/screenshot/default/bgmi-33-update-image-3_p7yr.jpg", page: "bgmi.html", description: "BGMI UC packs with clear manual order tracking.", bundles: [{ label: "60 UC", amount: 75 }, { label: "325 UC", amount: 380 }, { label: "660 UC", amount: 750 }, { label: "1800 UC", amount: 1850 }] },
-    pubg: { name: "PUBG Mobile", item: "UC", logo: "pubg.svg.png", background: "https://wallpapercave.com/wp/wp6539431.jpg", page: "pubg.html", description: "PUBG Mobile UC bundles with a clear payment summary before checkout.", bundles: [{ label: "60 UC", amount: 75 }, { label: "325 UC", amount: 380 }, { label: "660 UC", amount: 750 }, { label: "1800 UC", amount: 1850 }] },
-    valorant: { name: "Valorant", item: "VP", logo: "https://freelogopng.com/images/all_img/1664302472valorant-logo%20png-black.png", background: "https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/dd544c5c423909d0cb40c64def103bcbf6dd312c-1920x1080.jpg?accountingTag=val_esports&auto=format&fit=max&w=3840", page: "valorant.html", description: "Valorant Points bundles for your Riot account with clear manual payment verification.", bundles: [{ label: "475 VP", amount: 410, originalAmount: 435 }, { label: "1000 VP", amount: 840, originalAmount: 870 }, { label: "1520 VP", amount: 1360, originalAmount: 1425 }, { label: "2050 VP", amount: 1670, originalAmount: 1740 }, { label: "2575 VP", amount: 2270, originalAmount: 2375 }, { label: "3650 VP", amount: 3000, originalAmount: 3325 }] },
-    minecraft: { name: "Minecraft", item: "Minecoins", logo: "https://thumbs.dreamstime.com/b/minecraft-logo-online-game-dirt-block-illustrations-concept-design-isolated-186775550.jpg", background: "https://i.tlauncher.org/images/26.2-Snapshot4-preview.png", page: "minecraft.html", description: "Minecraft Minecoins packs with simple checkout. No game ID number required.", noGameId: true, bundles: [{ label: "1720 Minecoins", amount: 680, originalAmount: 735 }, { label: "3500 Minecoins", amount: 1389, originalAmount: 1457 }] },
-    minecraftpc: { name: "Minecraft", item: "Java & Bedrock Edition PC Key", logo: "https://thumbs.dreamstime.com/b/minecraft-logo-online-game-dirt-block-illustrations-concept-design-isolated-186775550.jpg?w=768", background: "https://4kwallpapers.com/images/walls/thumbs_2t/26078.jpg", page: "minecraft-pc.html", description: "Minecraft: Java & Bedrock Edition activation key for PC, delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Minecraft: Java & Bedrock Edition (PC) Activation Key", amount: 1900, originalAmount: 2605 }] },
-    gta5: { name: "GTA 5", item: "Premium Edition Game Key", logo: "https://crystalpng.com/wp-content/uploads/2025/06/GTA-5.png", background: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1WEskcbQFCeO1t95xNp6lwvWq65M04VpJmR1MflZyoY7YD9z4jXj6Ekp8&s=10", page: "gta5.html", description: "GTA 5 Premium Edition activation key for Rockstar Games Launcher, delivered to your active email after verification.", noGameId: true, bundles: [{ label: "GTA 5 Premium Edition (Game Key)", amount: 1500, originalAmount: 2499 }] },
-    gta6: { name: "GTA 6", item: "Coming Soon", logo: "https://4kwallpapers.com/images/walls/thumbs_3t/13622.png", background: "https://www.rockstargames.com/VI/_next/static/media/Jason_and_Lucia_01_landscape.12x2gvspcm_3m.jpg?akim=1&imdensity=1&imwidth=1280", page: "gta6.html", description: "Grand Theft Auto VI notifications are opening soon. Join the alert list and we will contact you when GTA 6 is available.", noGameId: true, comingSoon: true, bundles: [] },
-    forza5: { name: "Forza Horizon 5", item: "PC/XBOX Live Key", logo: "https://upload.wikimedia.org/wikipedia/en/8/86/Forza_Horizon_5_cover_art.jpg", background: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2i6WhUs0fzU9ntn2TPVFAHKC1IZenANX7R0ZSU0xhMYAvWeltAW1QaLsk&s=10", page: "forza-horizon-5.html", description: "Forza Horizon 5 PC/XBOX Live activation key delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Forza Horizon 5 PC/XBOX Live Key", amount: 3500, originalAmount: 7646 }] },
-    forza6: { name: "Forza Horizon 6", item: "Standard Edition XBOX Live Key", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Forza_Horizon_6_key_art.jpeg/250px-Forza_Horizon_6_key_art.jpeg", background: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ7VPE-TXWWh4wFk-n0d8TOZDdvmEAxnH8DeJ-JLUvNNXOqnLMizIbYX7g&s=10", page: "forza-horizon-6.html", description: "Forza Horizon 6 Standard Edition for Windows/Xbox Series X/S, delivered as an XBOX Live key.", noGameId: true, bundles: [{ label: "Forza Horizon 6 Standard Edition (Windows/Xbox Series X/S) XBOX Live Key", amount: 5300, originalAmount: 5499 }] },
-    residentevil: { name: "Resident Evil Requiem", item: "Xbox Series X/S Xbox Live Key", logo: "https://wallpapercave.com/wp/wp15649795.jpg", background: "https://wallpapercave.com/wp/wp15649778.png", page: "resident-evil-requiem.html", description: "Resident Evil Requiem for Xbox Series X/S, delivered as an Xbox Live activation key.", noGameId: true, bundles: [{ label: "Resident Evil Requiem (Xbox Series X/S) Xbox Live Key", amount: 5550, originalAmount: 6268 }] },
-    fallout4: { name: "Fallout 4", item: "Steam PC Key India", logo: "https://images7.alphacoders.com/599/thumb-1920-599168.png", background: "https://images.wallpapersden.com/image/download/fallout-4-game_a2xna26UmZqaraWkpJRobWllrWdma2U.jpg", page: "fallout-4.html", description: "Fallout 4 Steam activation key for PC in India, delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Fallout 4 Steam (PC) Key India", amount: 600, originalAmount: 1000 }] },
-    raji: { name: "Raji: An Ancient Epic", item: "Steam Key Global", logo: "https://sm.ign.com/ign_in/cover/r/raji-an-an/raji-an-ancient-epic_te44.jpg", background: "https://wallpapercave.com/wp/wp7717509.jpg", page: "raji-an-ancient-epic.html", description: "Raji: An Ancient Epic global Steam activation key delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Raji: An Ancient Epic Steam Key Global", amount: 200, originalAmount: 600 }] },
-    assassinscreed2: { name: "Assassin's Creed II", item: "PC Ubisoft Connect Key", logo: "https://wallpapercave.com/wp/3U55bWo.jpg", background: "https://wallpapercave.com/wp/G3YUJoT.jpg", page: "assassins-creed-2.html", description: "Assassin's Creed II activation key for Ubisoft Connect on PC, delivered after payment verification.", noGameId: true, bundles: [{ label: "Assassin's Creed II - PC (Ubisoft Connect)", amount: 520, originalAmount: 1083 }] },
-    spiderman: { name: "Marvel's Spider-Man Remastered", item: "PC Steam Key", logo: "https://wallpapercave.com/wp/wp7593605.jpg", background: "https://wallpapercave.com/wp/wp7593625.jpg", page: "spider-man-remastered.html", description: "Marvel's Spider-Man Remastered Steam key for PC, delivered after payment verification.", noGameId: true, bundles: [{ label: "Marvel's Spider-Man Remastered - PC (Steam)", amount: 2500, originalAmount: 3999 }] }
+    freefire: { name: "Free Fire", item: "Diamonds", logo: "freefire.svg.png", page: "freefire.html", description: "Fast diamond packs and memberships for Free Fire accounts with UPI checkout.", bundles: [{ label: "100 Diamonds", amount: 79 }, { label: "310 Diamonds", amount: 240 }, { label: "520 Diamonds", amount: 399 }, { label: "1060 Diamonds", amount: 799 }, { label: "Weekly Membership", amount: 159 }, { label: "Monthly Membership", amount: 799 }] },
+    bgmi: { name: "BGMI", item: "UC", logo: "bgmi.svg.jpg", page: "bgmi.html", description: "BGMI UC packs with clear manual order tracking.", bundles: [{ label: "60 UC", amount: 75 }, { label: "325 UC", amount: 380 }, { label: "660 UC", amount: 750 }, { label: "1800 UC", amount: 1850 }] },
+    pubg: { name: "PUBG Mobile", item: "UC", logo: "pubg.svg.png", page: "pubg.html", description: "PUBG Mobile UC bundles with a clear payment summary before checkout.", bundles: [{ label: "60 UC", amount: 75 }, { label: "325 UC", amount: 380 }, { label: "660 UC", amount: 750 }, { label: "1800 UC", amount: 1850 }] },
+    valorant: { name: "Valorant", item: "VP", logo: "https://freelogopng.com/images/all_img/1664302472valorant-logo%20png-black.png", page: "valorant.html", description: "Valorant Points bundles for your Riot account with clear manual payment verification.", bundles: [{ label: "475 VP", amount: 410, originalAmount: 435 }, { label: "1000 VP", amount: 840, originalAmount: 870 }, { label: "1520 VP", amount: 1360, originalAmount: 1425 }, { label: "2050 VP", amount: 1670, originalAmount: 1740 }, { label: "2575 VP", amount: 2270, originalAmount: 2375 }, { label: "3650 VP", amount: 3000, originalAmount: 3325 }] },
+    minecraft: { name: "Minecraft", item: "Minecoins", logo: "https://thumbs.dreamstime.com/b/minecraft-logo-online-game-dirt-block-illustrations-concept-design-isolated-186775550.jpg", page: "minecraft.html", description: "Minecraft Minecoins packs with simple checkout. No game ID number required.", noGameId: true, bundles: [{ label: "1720 Minecoins", amount: 680, originalAmount: 735 }, { label: "3500 Minecoins", amount: 1389, originalAmount: 1457 }] },
+    minecraftpc: { name: "Minecraft", item: "Java & Bedrock Edition PC Key", logo: "https://thumbs.dreamstime.com/b/minecraft-logo-online-game-dirt-block-illustrations-concept-design-isolated-186775550.jpg?w=768", page: "minecraft-pc.html", description: "Minecraft: Java & Bedrock Edition activation key for PC, delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Minecraft: Java & Bedrock Edition (PC) Activation Key", amount: 1900, originalAmount: 2605 }] },
+    gta5: { name: "GTA 5", item: "Premium Edition Game Key", logo: "https://crystalpng.com/wp-content/uploads/2025/06/GTA-5.png", page: "gta5.html", description: "GTA 5 Premium Edition activation key for Rockstar Games Launcher, delivered to your active email after verification.", noGameId: true, bundles: [{ label: "GTA 5 Premium Edition (Game Key)", amount: 1500, originalAmount: 2499 }] },
+    forza5: { name: "Forza Horizon 5", item: "PC/XBOX Live Key", logo: "https://upload.wikimedia.org/wikipedia/en/8/86/Forza_Horizon_5_cover_art.jpg", page: "forza-horizon-5.html", description: "Forza Horizon 5 PC/XBOX Live activation key delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Forza Horizon 5 PC/XBOX Live Key", amount: 3500, originalAmount: 7646 }] },
+    forza6: { name: "Forza Horizon 6", item: "Standard Edition XBOX Live Key", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Forza_Horizon_6_key_art.jpeg/250px-Forza_Horizon_6_key_art.jpeg", page: "forza-horizon-6.html", description: "Forza Horizon 6 Standard Edition for Windows/Xbox Series X/S, delivered as an XBOX Live key.", noGameId: true, bundles: [{ label: "Forza Horizon 6 Standard Edition (Windows/Xbox Series X/S) XBOX Live Key", amount: 5300, originalAmount: 5499 }] },
+    residentevil: { name: "Resident Evil Requiem", item: "Xbox Series X/S Xbox Live Key", logo: "https://wallpapercave.com/wp/wp15649795.jpg", page: "resident-evil-requiem.html", description: "Resident Evil Requiem for Xbox Series X/S, delivered as an Xbox Live activation key.", noGameId: true, bundles: [{ label: "Resident Evil Requiem (Xbox Series X/S) Xbox Live Key", amount: 5550, originalAmount: 6268 }] },
+    fallout4: { name: "Fallout 4", item: "Steam PC Key India", logo: "https://images7.alphacoders.com/599/thumb-1920-599168.png", page: "fallout-4.html", description: "Fallout 4 Steam activation key for PC in India, delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Fallout 4 Steam (PC) Key India", amount: 600, originalAmount: 1000 }] },
+    raji: { name: "Raji: An Ancient Epic", item: "Steam Key Global", logo: "https://sm.ign.com/ign_in/cover/r/raji-an-an/raji-an-ancient-epic_te44.jpg", page: "raji-an-ancient-epic.html", description: "Raji: An Ancient Epic global Steam activation key delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Raji: An Ancient Epic Steam Key Global", amount: 200, originalAmount: 600 }] },
+    assassinscreed2: { name: "Assassin's Creed II", item: "PC Ubisoft Connect Key", logo: "https://wallpapercave.com/wp/3U55bWo.jpg", page: "assassins-creed-2.html", description: "Assassin's Creed II activation key for Ubisoft Connect on PC, delivered after payment verification.", noGameId: true, bundles: [{ label: "Assassin's Creed II - PC (Ubisoft Connect)", amount: 520, originalAmount: 1083 }] },
+    spiderman: { name: "Marvel's Spider-Man Remastered", item: "PC Steam Key", logo: "https://wallpapercave.com/wp/wp7593605.jpg", page: "spider-man-remastered.html", description: "Marvel's Spider-Man Remastered Steam key for PC, delivered after payment verification.", noGameId: true, bundles: [{ label: "Marvel's Spider-Man Remastered - PC (Steam)", amount: 2500, originalAmount: 3999 }] }
   }
 };
 
@@ -393,7 +392,7 @@ function readLocalOrders() {
   }
 }
 function navHtml(active) {
-  const nav = [["index", "Home", "index.html"], ["freefire", "Free Fire", "freefire.html"], ["bgmi", "BGMI", "bgmi.html"], ["pubg", "PUBG", "pubg.html"], ["valorant", "Valorant", "valorant.html"], ["minecraft", "Minecoins", "minecraft.html"], ["minecraftpc", "Minecraft PC", "minecraft-pc.html"], ["gta5", "GTA 5", "gta5.html"], ["gta6", "GTA 6", "gta6.html"], ["assassinscreed2", "Assassin's Creed II", "assassins-creed-2.html"], ["fallout4", "Fallout 4", "fallout-4.html"], ["forza5", "Forza Horizon 5", "forza-horizon-5.html"], ["forza6", "Forza Horizon 6", "forza-horizon-6.html"], ["raji", "Raji", "raji-an-ancient-epic.html"], ["residentevil", "Resident Evil", "resident-evil-requiem.html"], ["spiderman", "Spider-Man", "spider-man-remastered.html"]];
+  const nav = [["index", "Home", "index.html"], ["freefire", "Free Fire", "freefire.html"], ["bgmi", "BGMI", "bgmi.html"], ["pubg", "PUBG", "pubg.html"], ["valorant", "Valorant", "valorant.html"], ["minecraft", "Minecoins", "minecraft.html"], ["minecraftpc", "Minecraft PC", "minecraft-pc.html"], ["gta5", "GTA 5", "gta5.html"], ["assassinscreed2", "Assassin's Creed II", "assassins-creed-2.html"], ["fallout4", "Fallout 4", "fallout-4.html"], ["forza5", "Forza Horizon 5", "forza-horizon-5.html"], ["forza6", "Forza Horizon 6", "forza-horizon-6.html"], ["raji", "Raji", "raji-an-ancient-epic.html"], ["residentevil", "Resident Evil", "resident-evil-requiem.html"], ["spiderman", "Spider-Man", "spider-man-remastered.html"]];
   return nav.map(([key, label, href]) => `<a class="${active === key ? "active" : ""}" href="${href}">${label}</a>`).join("");
 }
 
@@ -551,10 +550,6 @@ function bundleSummary(bundle, apply) {
 export function initCatalogFilters() {
   const search = document.querySelector("[data-game-search]");
   const filterButtons = [...document.querySelectorAll("[data-game-filter]")];
-  const platformButtons = [...document.querySelectorAll("[data-platform-filter]")];
-  const platformToggle = document.querySelector("[data-platform-filter-toggle]");
-  const platformOptions = document.querySelector("[data-platform-filter-options]");
-  const platformToggleLabel = document.querySelector("[data-platform-filter-label]");
   const cards = [...document.querySelectorAll(".game-grid .game-card")];
   const empty = document.querySelector("[data-catalog-empty]");
   if (!search || !filterButtons.length || !cards.length) return;
@@ -567,7 +562,6 @@ export function initCatalogFilters() {
     minecraft: "topup",
     minecraftpc: "key",
     gta5: "key",
-    gta6: "key",
     forza5: "key",
     forza6: "key",
     residentevil: "key",
@@ -576,60 +570,21 @@ export function initCatalogFilters() {
     assassinscreed2: "key",
     spiderman: "key"
   };
-  const platformCategories = {
-    forza5: "xbox microsoft",
-    forza6: "xbox microsoft",
-    gta5: "rockstar",
-    gta6: "rockstar",
-    minecraftpc: "microsoft",
-    residentevil: "xbox",
-    fallout4: "steam",
-    raji: "steam",
-    assassinscreed2: "ubisoft",
-    spiderman: "steam"
-  };
-  const platformLabels = {
-    steam: "Steam",
-    xbox: "Xbox",
-    microsoft: "Microsoft",
-    rockstar: "Rockstar",
-    ubisoft: "Ubisoft"
-  };
-  const params = new URLSearchParams(window.location.search);
-  const requestedFilter = params.get("filter");
-  const requestedPlatform = params.get("platform");
+  const requestedFilter = new URLSearchParams(window.location.search).get("filter");
   let activeFilter = ["all", "topup", "key"].includes(requestedFilter) ? requestedFilter : "all";
-  let activePlatform = ["all", ...Object.keys(platformLabels)].includes(requestedPlatform) ? requestedPlatform : "all";
 
   cards.forEach((card) => {
     const action = card.querySelector("[data-open-order]");
-    const key = action?.dataset.openOrder || card.dataset.productKey;
-    const platform = platformCategories[key] || "mobile";
-    card.dataset.category = keyCategories[key] || "topup";
-    card.dataset.platform = platform;
-    card.dataset.searchText = `${card.textContent} ${platform} ${platform.split(" ").map((name) => platformLabels[name] || name).join(" ")}`.toLowerCase();
+    card.dataset.category = keyCategories[action?.dataset.openOrder] || "topup";
   });
-
-  const setPlatformOptionsOpen = (open) => {
-    if (!platformOptions || !platformToggle) return;
-    platformOptions.hidden = !open;
-    platformToggle.classList.toggle("open", open);
-    platformToggle.setAttribute("aria-expanded", String(open));
-  };
-
-  const updatePlatformToggleLabel = () => {
-    if (!platformToggleLabel) return;
-    platformToggleLabel.textContent = activePlatform === "all" ? "Platform" : platformLabels[activePlatform] || "Platform";
-  };
 
   const apply = () => {
     const query = search.value.trim().toLowerCase();
     let visible = 0;
     cards.forEach((card) => {
-      const matchesText = !query || card.dataset.searchText.includes(query);
+      const matchesText = !query || card.textContent.toLowerCase().includes(query);
       const matchesFilter = activeFilter === "all" || card.dataset.category === activeFilter;
-      const matchesPlatform = activePlatform === "all" || card.dataset.platform.split(" ").includes(activePlatform);
-      const show = matchesText && matchesFilter && matchesPlatform;
+      const show = matchesText && matchesFilter;
       card.hidden = !show;
       if (show) visible += 1;
     });
@@ -647,40 +602,11 @@ export function initCatalogFilters() {
     apply();
   }));
 
-  platformToggle?.addEventListener("click", () => {
-    setPlatformOptionsOpen(platformOptions?.hidden !== false);
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!platformOptions || !platformToggle || platformOptions.hidden) return;
-    if (event.target.closest("[data-platform-filter-options]") || event.target.closest("[data-platform-filter-toggle]")) return;
-    setPlatformOptionsOpen(false);
-  });
-
-  platformButtons.forEach((button) => button.addEventListener("click", () => {
-    activePlatform = button.dataset.platformFilter;
-    platformButtons.forEach((item) => {
-      const selected = item === button;
-      item.classList.toggle("active", selected);
-      item.setAttribute("aria-pressed", String(selected));
-    });
-    updatePlatformToggleLabel();
-    setPlatformOptionsOpen(false);
-    apply();
-  }));
-
   filterButtons.forEach((button) => {
     const selected = button.dataset.gameFilter === activeFilter;
     button.classList.toggle("active", selected);
     button.setAttribute("aria-pressed", String(selected));
   });
-  platformButtons.forEach((button) => {
-    const selected = button.dataset.platformFilter === activePlatform;
-    button.classList.toggle("active", selected);
-    button.setAttribute("aria-pressed", String(selected));
-  });
-  updatePlatformToggleLabel();
-  setPlatformOptionsOpen(activePlatform !== "all");
   apply();
 }
 
@@ -736,7 +662,6 @@ export function initOrderModal() {
 export function initGamePage(gameKey) {
   const game = TopupData.games[gameKey];
   if (!game) return;
-  if (game.background) document.documentElement.style.setProperty("--product-bg", `url("${game.background}")`);
   document.querySelectorAll("[data-game-name]").forEach((node) => { node.textContent = game.name; });
   document.querySelectorAll("[data-game-item]").forEach((node) => { node.textContent = game.item; });
   document.querySelectorAll("[data-game-logo]").forEach((node) => { node.src = game.logo; node.alt = game.name + " logo"; });
@@ -787,53 +712,6 @@ export function initGamePage(gameKey) {
     showPaymentPanel(order);
   });
   update();
-}
-
-export async function saveGta6NotificationRequest({ name, email, mobile }) {
-  const cleanName = String(name || "").trim();
-  const cleanEmail = String(email || "").trim();
-  const cleanMobile = String(mobile || "").trim();
-  if (!cleanName) throw new Error("Please enter your name.");
-  if (!emailValid(cleanEmail)) throw new Error("Please enter a valid email address.");
-  if (!/^[+\d][\d\s()-]{7,18}$/.test(cleanMobile)) throw new Error("Please enter a valid mobile number.");
-  const notificationRef = push(dbRef(database, "gta6Notifications"));
-  await withTimeout(set(notificationRef, {
-    name: cleanName,
-    email: cleanEmail,
-    mobile: cleanMobile,
-    product: "GTA 6",
-    status: "Notification Enabled",
-    createdAt: serverTimestamp()
-  }), "Could not save your notification request in Firebase Realtime Database.");
-}
-
-export function initGta6NotificationPage() {
-  const form = document.querySelector("[data-gta6-notification-form]");
-  if (!form) return;
-  const name = form.querySelector("[data-notify-name]");
-  const email = form.querySelector("[data-notify-email]");
-  const mobile = form.querySelector("[data-notify-mobile]");
-  const submit = form.querySelector("button[type='submit']");
-  const status = form.querySelector("[data-notify-status]");
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    submit.disabled = true;
-    submit.textContent = "Turning on...";
-    status.textContent = "Saving your request...";
-    status.classList.remove("success", "error");
-    try {
-      await saveGta6NotificationRequest({ name: name.value, email: email.value, mobile: mobile.value });
-      form.reset();
-      status.textContent = "Notification enabled! We will inform you when GTA 6 is available.";
-      status.classList.add("success");
-    } catch (error) {
-      status.textContent = readableOrderError(error);
-      status.classList.add("error");
-    } finally {
-      submit.disabled = false;
-      submit.textContent = "Turn On Notification";
-    }
-  });
 }
 
 export function initRedeem() {
