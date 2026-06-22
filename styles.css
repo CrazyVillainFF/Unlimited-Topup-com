@@ -177,9 +177,8 @@
 }
 
 .game-card.coming-soon-card > img {
-  align-self: center;
-  width: 100%;
-  max-width: 160px;
+  width: 96px;
+  max-width: 120px;
   height: auto;
   min-height: 0;
   object-fit: contain;
