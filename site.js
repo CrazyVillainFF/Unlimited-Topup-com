@@ -1,4 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+﻿import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, updateProfile, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 import { getDatabase, ref as dbRef, push, serverTimestamp, onValue, update, set, get, runTransaction, query, orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-database.js";
 
@@ -393,7 +393,7 @@ function readLocalOrders() {
   }
 }
 function navHtml(active) {
-  const nav = [["index", "Home", "index.html"], ["freefire", "Free Fire", "freefire.html"], ["bgmi", "BGMI", "bgmi.html"], ["pubg", "PUBG", "pubg.html"], ["valorant", "Valorant", "valorant.html"], ["minecraft", "Minecoins", "minecraft.html"], ["minecraftpc", "Minecraft PC", "minecraft-pc.html"], ["gta5", "GTA 5", "gta5.html"], ["gta6", "GTA 6", "gta6.html"], ["assassinscreed2", "Assassin's Creed II", "assassins-creed-2.html"], ["fallout4", "Fallout 4", "fallout-4.html"], ["forza5", "Forza Horizon 5", "forza-horizon-5.html"], ["forza6", "Forza Horizon 6", "forza-horizon-6.html"], ["raji", "Raji", "raji-an-ancient-epic.html"], ["residentevil", "Resident Evil", "resident-evil-requiem.html"], ["spiderman", "Spider-Man", "spider-man-remastered.html"]];
+  const nav = [["index", "Home", "index.html"], ["freefire", "Free Fire", "freefire.html"], ["bgmi", "BGMI", "bgmi.html"], ["pubg", "PUBG", "pubg.html"], ["valorant", "Valorant", "valorant.html"], ["minecraft", "Minecoins", "minecraft.html"], ["minecraftpc", "Minecraft PC", "minecraft-pc.html"], ["gta5", "GTA 5", "gta5.html"], ["assassinscreed2", "Assassin's Creed II", "assassins-creed-2.html"], ["fallout4", "Fallout 4", "fallout-4.html"], ["forza5", "Forza Horizon 5", "forza-horizon-5.html"], ["forza6", "Forza Horizon 6", "forza-horizon-6.html"], ["raji", "Raji", "raji-an-ancient-epic.html"], ["residentevil", "Resident Evil", "resident-evil-requiem.html"], ["spiderman", "Spider-Man", "spider-man-remastered.html"]];
   return nav.map(([key, label, href]) => `<a class="${active === key ? "active" : ""}" href="${href}">${label}</a>`).join("");
 }
 
@@ -551,10 +551,6 @@ function bundleSummary(bundle, apply) {
 export function initCatalogFilters() {
   const search = document.querySelector("[data-game-search]");
   const filterButtons = [...document.querySelectorAll("[data-game-filter]")];
-  const platformButtons = [...document.querySelectorAll("[data-platform-filter]")];
-  const platformToggle = document.querySelector("[data-platform-filter-toggle]");
-  const platformOptions = document.querySelector("[data-platform-filter-options]");
-  const platformToggleLabel = document.querySelector("[data-platform-filter-label]");
   const cards = [...document.querySelectorAll(".game-grid .game-card")];
   const empty = document.querySelector("[data-catalog-empty]");
   if (!search || !filterButtons.length || !cards.length) return;
@@ -567,7 +563,6 @@ export function initCatalogFilters() {
     minecraft: "topup",
     minecraftpc: "key",
     gta5: "key",
-    gta6: "key",
     forza5: "key",
     forza6: "key",
     residentevil: "key",
@@ -576,60 +571,21 @@ export function initCatalogFilters() {
     assassinscreed2: "key",
     spiderman: "key"
   };
-  const platformCategories = {
-    forza5: "xbox microsoft",
-    forza6: "xbox microsoft",
-    gta5: "rockstar",
-    gta6: "rockstar",
-    minecraftpc: "microsoft",
-    residentevil: "xbox",
-    fallout4: "steam",
-    raji: "steam",
-    assassinscreed2: "ubisoft",
-    spiderman: "steam"
-  };
-  const platformLabels = {
-    steam: "Steam",
-    xbox: "Xbox",
-    microsoft: "Microsoft",
-    rockstar: "Rockstar",
-    ubisoft: "Ubisoft"
-  };
-  const params = new URLSearchParams(window.location.search);
-  const requestedFilter = params.get("filter");
-  const requestedPlatform = params.get("platform");
+  const requestedFilter = new URLSearchParams(window.location.search).get("filter");
   let activeFilter = ["all", "topup", "key"].includes(requestedFilter) ? requestedFilter : "all";
-  let activePlatform = ["all", ...Object.keys(platformLabels)].includes(requestedPlatform) ? requestedPlatform : "all";
 
   cards.forEach((card) => {
     const action = card.querySelector("[data-open-order]");
-    const key = action?.dataset.openOrder || card.dataset.productKey;
-    const platform = platformCategories[key] || "mobile";
-    card.dataset.category = keyCategories[key] || "topup";
-    card.dataset.platform = platform;
-    card.dataset.searchText = `${card.textContent} ${platform} ${platform.split(" ").map((name) => platformLabels[name] || name).join(" ")}`.toLowerCase();
+    card.dataset.category = keyCategories[action?.dataset.openOrder] || "topup";
   });
-
-  const setPlatformOptionsOpen = (open) => {
-    if (!platformOptions || !platformToggle) return;
-    platformOptions.hidden = !open;
-    platformToggle.classList.toggle("open", open);
-    platformToggle.setAttribute("aria-expanded", String(open));
-  };
-
-  const updatePlatformToggleLabel = () => {
-    if (!platformToggleLabel) return;
-    platformToggleLabel.textContent = activePlatform === "all" ? "Platform" : platformLabels[activePlatform] || "Platform";
-  };
 
   const apply = () => {
     const query = search.value.trim().toLowerCase();
     let visible = 0;
     cards.forEach((card) => {
-      const matchesText = !query || card.dataset.searchText.includes(query);
+      const matchesText = !query || card.textContent.toLowerCase().includes(query);
       const matchesFilter = activeFilter === "all" || card.dataset.category === activeFilter;
-      const matchesPlatform = activePlatform === "all" || card.dataset.platform.split(" ").includes(activePlatform);
-      const show = matchesText && matchesFilter && matchesPlatform;
+      const show = matchesText && matchesFilter;
       card.hidden = !show;
       if (show) visible += 1;
     });
@@ -647,40 +603,11 @@ export function initCatalogFilters() {
     apply();
   }));
 
-  platformToggle?.addEventListener("click", () => {
-    setPlatformOptionsOpen(platformOptions?.hidden !== false);
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!platformOptions || !platformToggle || platformOptions.hidden) return;
-    if (event.target.closest("[data-platform-filter-options]") || event.target.closest("[data-platform-filter-toggle]")) return;
-    setPlatformOptionsOpen(false);
-  });
-
-  platformButtons.forEach((button) => button.addEventListener("click", () => {
-    activePlatform = button.dataset.platformFilter;
-    platformButtons.forEach((item) => {
-      const selected = item === button;
-      item.classList.toggle("active", selected);
-      item.setAttribute("aria-pressed", String(selected));
-    });
-    updatePlatformToggleLabel();
-    setPlatformOptionsOpen(false);
-    apply();
-  }));
-
   filterButtons.forEach((button) => {
     const selected = button.dataset.gameFilter === activeFilter;
     button.classList.toggle("active", selected);
     button.setAttribute("aria-pressed", String(selected));
   });
-  platformButtons.forEach((button) => {
-    const selected = button.dataset.platformFilter === activePlatform;
-    button.classList.toggle("active", selected);
-    button.setAttribute("aria-pressed", String(selected));
-  });
-  updatePlatformToggleLabel();
-  setPlatformOptionsOpen(activePlatform !== "all");
   apply();
 }
 
@@ -736,7 +663,6 @@ export function initOrderModal() {
 export function initGamePage(gameKey) {
   const game = TopupData.games[gameKey];
   if (!game) return;
-  if (game.background) document.documentElement.style.setProperty("--product-bg", `url("${game.background}")`);
   document.querySelectorAll("[data-game-name]").forEach((node) => { node.textContent = game.name; });
   document.querySelectorAll("[data-game-item]").forEach((node) => { node.textContent = game.item; });
   document.querySelectorAll("[data-game-logo]").forEach((node) => { node.src = game.logo; node.alt = game.name + " logo"; });
@@ -787,53 +713,6 @@ export function initGamePage(gameKey) {
     showPaymentPanel(order);
   });
   update();
-}
-
-export async function saveGta6NotificationRequest({ name, email, mobile }) {
-  const cleanName = String(name || "").trim();
-  const cleanEmail = String(email || "").trim();
-  const cleanMobile = String(mobile || "").trim();
-  if (!cleanName) throw new Error("Please enter your name.");
-  if (!emailValid(cleanEmail)) throw new Error("Please enter a valid email address.");
-  if (!/^[+\d][\d\s()-]{7,18}$/.test(cleanMobile)) throw new Error("Please enter a valid mobile number.");
-  const notificationRef = push(dbRef(database, "gta6Notifications"));
-  await withTimeout(set(notificationRef, {
-    name: cleanName,
-    email: cleanEmail,
-    mobile: cleanMobile,
-    product: "GTA 6",
-    status: "Notification Enabled",
-    createdAt: serverTimestamp()
-  }), "Could not save your notification request in Firebase Realtime Database.");
-}
-
-export function initGta6NotificationPage() {
-  const form = document.querySelector("[data-gta6-notification-form]");
-  if (!form) return;
-  const name = form.querySelector("[data-notify-name]");
-  const email = form.querySelector("[data-notify-email]");
-  const mobile = form.querySelector("[data-notify-mobile]");
-  const submit = form.querySelector("button[type='submit']");
-  const status = form.querySelector("[data-notify-status]");
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    submit.disabled = true;
-    submit.textContent = "Turning on...";
-    status.textContent = "Saving your request...";
-    status.classList.remove("success", "error");
-    try {
-      await saveGta6NotificationRequest({ name: name.value, email: email.value, mobile: mobile.value });
-      form.reset();
-      status.textContent = "Notification enabled! We will inform you when GTA 6 is available.";
-      status.classList.add("success");
-    } catch (error) {
-      status.textContent = readableOrderError(error);
-      status.classList.add("error");
-    } finally {
-      submit.disabled = false;
-      submit.textContent = "Turn On Notification";
-    }
-  });
 }
 
 export function initRedeem() {
