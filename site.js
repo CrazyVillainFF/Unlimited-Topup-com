@@ -33,6 +33,7 @@ export const TopupData = {
     minecraft: { name: "Minecraft", item: "Minecoins", logo: "https://thumbs.dreamstime.com/b/minecraft-logo-online-game-dirt-block-illustrations-concept-design-isolated-186775550.jpg", page: "minecraft.html", description: "Minecraft Minecoins packs with simple checkout. No game ID number required.", noGameId: true, bundles: [{ label: "1720 Minecoins", amount: 680, originalAmount: 735 }, { label: "3500 Minecoins", amount: 1389, originalAmount: 1457 }] },
     minecraftpc: { name: "Minecraft", item: "Java & Bedrock Edition PC Key", logo: "https://thumbs.dreamstime.com/b/minecraft-logo-online-game-dirt-block-illustrations-concept-design-isolated-186775550.jpg?w=768", page: "minecraft-pc.html", description: "Minecraft: Java & Bedrock Edition activation key for PC, delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Minecraft: Java & Bedrock Edition (PC) Activation Key", amount: 1900, originalAmount: 2605 }] },
     gta5: { name: "GTA 5", item: "Premium Edition Game Key", logo: "https://crystalpng.com/wp-content/uploads/2025/06/GTA-5.png", page: "gta5.html", description: "GTA 5 Premium Edition activation key for Rockstar Games Launcher, delivered to your active email after verification.", noGameId: true, bundles: [{ label: "GTA 5 Premium Edition (Game Key)", amount: 1500, originalAmount: 2499 }] },
+    carxstreet: { name: "CarX Street", item: "PC Steam Key", logo: "https://wallpapercave.com/wp/wp12516960.jpg", page: "carxstreet.html", description: "CarX Street (PC) Steam activation key delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Steam Account Name", accountNamePlaceholder: "Enter your Steam account name", bundles: [{ label: "CarX Street (PC) Steam Key", amount: 1550, originalAmount: 1743 }] },
     forza5: { name: "Forza Horizon 5", item: "PC/XBOX Live Key", logo: "https://upload.wikimedia.org/wikipedia/en/8/86/Forza_Horizon_5_cover_art.jpg", page: "forza-horizon-5.html", description: "Forza Horizon 5 PC/XBOX Live activation key delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Forza Horizon 5 PC/XBOX Live Key", amount: 3500, originalAmount: 7646 }] },
     forza6: { name: "Forza Horizon 6", item: "Standard Edition XBOX Live Key", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Forza_Horizon_6_key_art.jpeg/250px-Forza_Horizon_6_key_art.jpeg", page: "forza-horizon-6.html", description: "Forza Horizon 6 Standard Edition for Windows/Xbox Series X/S, delivered as an XBOX Live key.", noGameId: true, bundles: [{ label: "Forza Horizon 6 Standard Edition (Windows/Xbox Series X/S) XBOX Live Key", amount: 5300, originalAmount: 5499 }] },
     residentevil: { name: "Resident Evil Requiem", item: "Xbox Series X/S Xbox Live Key", logo: "https://wallpapercave.com/wp/wp15649795.jpg", page: "resident-evil-requiem.html", description: "Resident Evil Requiem for Xbox Series X/S, delivered as an Xbox Live activation key.", noGameId: true, bundles: [{ label: "Resident Evil Requiem (Xbox Series X/S) Xbox Live Key", amount: 5550, originalAmount: 6268 }] },
@@ -395,7 +396,7 @@ function readLocalOrders() {
   }
 }
 function navHtml(active) {
-  const nav = [["index", "Home", "index.html"], ["freefire", "Free Fire", "freefire.html"], ["bgmi", "BGMI", "bgmi.html"], ["pubg", "PUBG", "pubg.html"], ["valorant", "Valorant", "valorant.html"], ["minecraft", "Minecoins", "minecraft.html"], ["minecraftpc", "Minecraft PC", "minecraft-pc.html"], ["gta5", "GTA 5", "gta5.html"], ["gta6", "GTA 6", "gta6.html"], ["rdr2", "RDR 2", "rdr2.html"], ["assassinscreed2", "Assassin's Creed II", "assassins-creed-2.html"], ["fallout4", "Fallout 4", "fallout-4.html"], ["forza5", "Forza Horizon 5", "forza-horizon-5.html"], ["forza6", "Forza Horizon 6", "forza-horizon-6.html"], ["raji", "Raji", "raji-an-ancient-epic.html"], ["residentevil", "Resident Evil", "resident-evil-requiem.html"], ["spiderman", "Spider-Man", "spider-man-remastered.html"]];
+  const nav = [["index", "Home", "index.html"], ["freefire", "Free Fire", "freefire.html"], ["bgmi", "BGMI", "bgmi.html"], ["pubg", "PUBG", "pubg.html"], ["valorant", "Valorant", "valorant.html"], ["minecraft", "Minecoins", "minecraft.html"], ["minecraftpc", "Minecraft PC", "minecraft-pc.html"], ["gta5", "GTA 5", "gta5.html"], ["carxstreet", "CarX Street", "carxstreet.html"], ["gta6", "GTA 6", "gta6.html"], ["rdr2", "RDR 2", "rdr2.html"], ["assassinscreed2", "Assassin's Creed II", "assassins-creed-2.html"], ["fallout4", "Fallout 4", "fallout-4.html"], ["forza5", "Forza Horizon 5", "forza-horizon-5.html"], ["forza6", "Forza Horizon 6", "forza-horizon-6.html"], ["raji", "Raji", "raji-an-ancient-epic.html"], ["residentevil", "Resident Evil", "resident-evil-requiem.html"], ["spiderman", "Spider-Man", "spider-man-remastered.html"]];
   return nav.map(([key, label, href]) => `<a class="${active === key ? "active" : ""}" href="${href}">${label}</a>`).join("");
 }
 
@@ -565,6 +566,7 @@ export function initCatalogFilters() {
     minecraft: "topup",
     minecraftpc: "key",
     gta5: "key",
+    carxstreet: "key",
     forza5: "key",
     forza6: "key",
     residentevil: "key",
@@ -637,6 +639,7 @@ export function initOrderModal() {
     currentKey = button.dataset.openOrder;
     const game = TopupData.games[currentKey];
     const digitalKey = isDigitalGameKey(game);
+    const needsAccountName = Boolean(game.requiresAccountName);
     title.textContent = `Order ${game.name} ${game.item}`;
     username.value = auth.currentUser?.displayName || (auth.currentUser?.email || "Customer").split("@")[0]; 
     player.value = ""; 
@@ -645,7 +648,7 @@ export function initOrderModal() {
 
     // RDR 2 Specific: Skip Player ID and Game ID Name
     const isRdr2 = currentKey === 'rdr2';
-    username.closest("label").style.display = (digitalKey || isRdr2) ? "none" : "";
+    username.closest("label").style.display = ((digitalKey && !needsAccountName) || isRdr2) ? "none" : "";
     player.closest("label").style.display = (game.noGameId || isRdr2) ? "none" : "";
     player.required = !game.noGameId && !isRdr2;
     
@@ -654,20 +657,26 @@ export function initOrderModal() {
       username.closest("label").querySelector('small').textContent = "Enter your Rockstar account name.";
       username.closest("label").style.display = ""; // Show name for Rockstar account name
       username.placeholder = "Enter your Rockstar account name";
+    } else if (needsAccountName) {
+      const label = username.closest("label");
+      if (label) label.childNodes[0].nodeValue = game.accountNameLabel || "Account Name";
+      const help = label?.querySelector('small');
+      if (help) help.textContent = `Enter your ${game.name} account name if needed for order verification.`;
+      username.placeholder = game.accountNamePlaceholder || "Enter your account name";
     } else {
        username.closest("label").querySelector('small').textContent = "If your in-game name has symbol, please match it as closely as possible.";
     }
 
     offer.closest("label").style.display = (game.noGameId || isRdr2) ? "none" : "";
     fillBundleSelect(bundle, currentKey); update(); modal.classList.add("open");
-    (digitalKey ? customerEmail : (game.noGameId ? username : player)).focus();
+    (needsAccountName ? username : (digitalKey ? customerEmail : (game.noGameId ? username : player))).focus();
   }));
   modal.querySelectorAll("[data-close-modal]").forEach((button) => button.addEventListener("click", () => modal.classList.remove("open")));
   bundle.addEventListener("change", update); offer.addEventListener("change", update);
   pay.addEventListener("click", async () => {
     if (!currentKey) return;
     const game = TopupData.games[currentKey];
-    if (!isDigitalGameKey(game) && !username.value.trim()) { alert("Please enter your game ID name."); username.focus(); return; }
+    if ((!isDigitalGameKey(game) || game.requiresAccountName) && !username.value.trim()) { alert(game.requiresAccountName ? "Please enter your account name." : "Please enter your game ID name."); username.focus(); return; }
     if (!game.noGameId && !player.value.trim()) { alert("Please enter your game ID."); player.focus(); return; }
     if (!emailValid(customerEmail.value.trim())) { alert("Please enter your active email."); customerEmail.focus(); return; }
     if (bundle.value === "") { alert("Please select a bundle."); return; }
@@ -697,16 +706,22 @@ export function initGamePage(gameKey) {
   const summary = form.querySelector("[data-summary]");
   const submit = form.querySelector("button[type='submit']");
   const digitalKey = isDigitalGameKey(game);
+  const needsAccountName = Boolean(game.requiresAccountName);
   if (submit) submit.textContent = "Continue to Manual Payment";
   if (game.noGameId && player) {
     player.closest("label").style.display = "none";
     player.required = false;
   }
   if (game.noGameId && offer) offer.closest("label").style.display = "none";
-  if (digitalKey && username) {
+  if (digitalKey && username && !needsAccountName) {
     username.closest("label").style.display = "none";
     username.required = false;
     username.value = auth.currentUser?.displayName || (auth.currentUser?.email || "Customer").split("@")[0];
+  } else if (needsAccountName && username) {
+    const label = username.closest("label");
+    if (label) label.childNodes[0].nodeValue = game.accountNameLabel || "Account Name";
+    username.placeholder = game.accountNamePlaceholder || "Enter your account name";
+    username.required = true;
   }
   fillBundleSelect(bundle, gameKey);
   const update = () => {
@@ -722,7 +737,7 @@ export function initGamePage(gameKey) {
     event.preventDefault();
     if (!(await requireLogin())) return;
     if (customerEmail && !customerEmail.value.trim()) customerEmail.value = auth.currentUser?.email || "";
-    if (!digitalKey && !username.value.trim()) { alert("Please enter your game ID name."); username.focus(); return; }
+    if ((!digitalKey || needsAccountName) && !username.value.trim()) { alert(needsAccountName ? "Please enter your account name." : "Please enter your game ID name."); username.focus(); return; }
     if (!game.noGameId && !player.value.trim()) { alert("Please enter your game ID."); player.focus(); return; }
     if (!emailValid(customerEmail.value.trim())) { alert("Please enter your active email."); customerEmail.focus(); return; }
     if (bundle.value === "") { alert("Please select a bundle."); return; }
