@@ -33,13 +33,18 @@ export const TopupData = {
     minecraft: { name: "Minecraft", item: "Minecoins", logo: "https://thumbs.dreamstime.com/b/minecraft-logo-online-game-dirt-block-illustrations-concept-design-isolated-186775550.jpg", page: "minecraft.html", description: "Minecraft Minecoins packs with simple checkout. No game ID number required.", noGameId: true, bundles: [{ label: "1720 Minecoins", amount: 680, originalAmount: 735 }, { label: "3500 Minecoins", amount: 1389, originalAmount: 1457 }] },
     minecraftpc: { name: "Minecraft", item: "Java & Bedrock Edition PC Key", logo: "https://thumbs.dreamstime.com/b/minecraft-logo-online-game-dirt-block-illustrations-concept-design-isolated-186775550.jpg?w=768", page: "minecraft-pc.html", description: "Minecraft: Java & Bedrock Edition activation key for PC, delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Minecraft: Java & Bedrock Edition (PC) Activation Key", amount: 1900, originalAmount: 2605 }] },
     gta5: { name: "GTA 5", item: "Premium Edition Game Key", logo: "https://crystalpng.com/wp-content/uploads/2025/06/GTA-5.png", page: "gta5.html", description: "GTA 5 Premium Edition activation key for Rockstar Games Launcher, delivered to your active email after verification.", noGameId: true, bundles: [{ label: "GTA 5 Premium Edition (Game Key)", amount: 1500, originalAmount: 2499 }] },
+    gta4: { name: "GTA 4 (Complete Edition)", item: "Steam Key (PC)", logo: "https://upload.wikimedia.org/wikipedia/commons/5/5d/GTA_IV_logo.png", page: "gta4-complete-edition.html", description: "GTA 4 (Complete Edition) Steam key for PC delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Steam Account Name", accountNamePlaceholder: "Enter your Steam account name", bundles: [{ label: "GTA 4 (Complete Edition) Steam Key (PC)", amount: 2800 }] },
     carxstreet: { name: "CarX Street", item: "PC Steam Key", logo: "https://wallpapercave.com/wp/wp12516960.jpg", page: "carxstreet.html", description: "CarX Street (PC) Steam activation key delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Steam Account Name", accountNamePlaceholder: "Enter your Steam account name", bundles: [{ label: "CarX Street (PC) Steam Key", amount: 1550, originalAmount: 1743 }] },
     arcraiders: { name: "ARC Raiders", item: "Steam Key (PC)", logo: "https://s3-alpha.figma.com/hub/file/2279810185967181838/a92eb596-fedb-4fe4-9a05-1e1f95382833-cover.png", page: "arc-raiders.html", description: "ARC Raiders Steam key for PC delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Steam Account Name", accountNamePlaceholder: "Enter your Steam account name", bundles: [{ label: "ARC Raiders Steam Key (PC)", amount: 2000, originalAmount: 2600 }] },
     mafia2: { name: "Mafia II Deluxe Edition", item: "Steam Key (PC)", logo: "https://wallpapercave.com/wp/wp12977922.jpg", page: "mafia-2-deluxe-edition.html", description: "Mafia II Deluxe Edition Steam key for PC delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Steam Account Name", accountNamePlaceholder: "Enter your Steam account name", bundles: [{ label: "Mafia II Deluxe Edition Steam Key (PC)", amount: 1000, originalAmount: 1699 }] },
+    mafia2gog: { name: "Mafia II Deluxe Edition", item: "GOG.com Key", logo: "https://wallpapercave.com/wp/wp12977922.jpg", page: "mafia-2-deluxe-edition-gog.html", description: "Mafia II Deluxe Edition GOG.com key delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "GOG.com Account Name", accountNamePlaceholder: "Enter your GOG.com account name", bundles: [{ label: "Mafia II Deluxe Edition GOG.com Key", amount: 700, originalAmount: 2899 }] },
     skyrim: { name: "The Elder Scrolls V: Skyrim", item: "Special Edition Steam Key (PC)", logo: "https://www.pixelstalk.net/wp-content/uploads/2016/05/Skyrim-Wallpapers-Full-HD.jpg", page: "skyrim-special-edition.html", description: "The Elder Scrolls V: Skyrim Special Edition Steam key for PC delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Steam Account Name", accountNamePlaceholder: "Enter your Steam account name", bundles: [{ label: "The Elder Scrolls V: Skyrim Special Edition Steam Key (PC)", amount: 1200, originalAmount: 1799 }] },
     doometernal: { name: "Doom Eternal", item: "Steam Key (PC)", logo: "https://c4.wallpaperflare.com/wallpaper/237/500/33/doom-eternal-doom-game-doom-guy-doom-slayer-video-games-hd-wallpaper-preview.jpg", page: "doom-eternal.html", description: "Doom Eternal Steam key for PC delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Steam Account Name", accountNamePlaceholder: "Enter your Steam account name", bundles: [{ label: "Doom Eternal (PC) Steam Key", amount: 900, originalAmount: 1799 }] },
     darksouls: { name: "Dark Souls: Remastered", item: "XBOX LIVE Key", logo: "https://wallpapercave.com/wp/wp3756462.jpg", page: "dark-souls-remastered.html", description: "Dark Souls: Remastered XBOX LIVE key delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Xbox Account Name", accountNamePlaceholder: "Enter your Xbox account name", bundles: [{ label: "Dark Souls: Remastered XBOX LIVE Key", amount: 1000, originalAmount: 2449 }] },
     farcry4: { name: "Far Cry 4", item: "PC Ubisoft Connect Key", logo: "https://c4.wallpaperflare.com/wallpaper/174/73/229/far-cry-4-wallpaper-preview.jpg", page: "far-cry-4.html", description: "Far Cry 4 PC Ubisoft Connect key delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Ubisoft Account Name", accountNamePlaceholder: "Enter your Ubisoft account name", bundles: [{ label: "Far Cry 4 (PC) Ubisoft Connect Key", amount: 1000, originalAmount: 2840 }] },
+    sekiro: { name: "Sekiro: Shadows Die Twice", item: "GOTY Edition XBOX LIVE Key", logo: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/3367fa99-0ba6-454c-b947-683f1a9f896d/ddwh3ph-92b34e9e-b5fb-4507-a8e1-1253c19b21b9.png/v1/fill/w_731,h_768/sekiro_shadows_die_twice_icon_ico_by_momen221_ddwh3ph-fullview.png", page: "sekiro-shadows-die-twice-goty.html", description: "Sekiro: Shadows Die Twice GOTY Edition XBOX LIVE key delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Xbox Account Name", accountNamePlaceholder: "Enter your Xbox account name", bundles: [{ label: "Sekiro: Shadows Die Twice GOTY Edition XBOX LIVE Key", amount: 2500, originalAmount: 7572 }] },
+    lastofus1: { name: "The Last of Us Part I", item: "PC Steam Key", logo: "https://c4.wallpaperflare.com/wallpaper/963/710/512/the-last-of-us-joel-games-dark-wallpaper-preview.jpg", page: "the-last-of-us-part-1.html", description: "The Last of Us Part I PC Steam key delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Steam Account Name", accountNamePlaceholder: "Enter your Steam account name", bundles: [{ label: "The Last of Us Part I (PC) Steam Key", amount: 2900, originalAmount: 3999 }] },
+    lastofus2: { name: "The Last of Us Part II Remastered", item: "Steam Key", logo: "https://4kwallpapers.com/images/walls/thumbs_3t/13727.jpg", page: "the-last-of-us-2-remastered.html", description: "The Last of Us Part II Remastered Steam key delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Steam Account Name", accountNamePlaceholder: "Enter your Steam account name", bundles: [{ label: "The Last of Us Part II Remastered Steam Key", amount: 4000 }] },
     forza5: { name: "Forza Horizon 5", item: "PC/XBOX Live Key", logo: "https://upload.wikimedia.org/wikipedia/en/8/86/Forza_Horizon_5_cover_art.jpg", page: "forza-horizon-5.html", description: "Forza Horizon 5 PC/XBOX Live activation key delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Forza Horizon 5 PC/XBOX Live Key", amount: 3500, originalAmount: 7646 }] },
     forza6: { name: "Forza Horizon 6", item: "Standard Edition XBOX Live Key", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Forza_Horizon_6_key_art.jpeg/250px-Forza_Horizon_6_key_art.jpeg", page: "forza-horizon-6.html", description: "Forza Horizon 6 Standard Edition for Windows/Xbox Series X/S, delivered as an XBOX Live key.", noGameId: true, bundles: [{ label: "Forza Horizon 6 Standard Edition (Windows/Xbox Series X/S) XBOX Live Key", amount: 5300, originalAmount: 5499 }] },
     residentevil: { name: "Resident Evil Requiem", item: "Xbox Series X/S Xbox Live Key", logo: "https://wallpapercave.com/wp/wp15649795.jpg", page: "resident-evil-requiem.html", description: "Resident Evil Requiem for Xbox Series X/S, delivered as an Xbox Live activation key.", noGameId: true, bundles: [{ label: "Resident Evil Requiem (Xbox Series X/S) Xbox Live Key", amount: 5550, originalAmount: 6268 }] },
@@ -47,7 +52,7 @@ export const TopupData = {
     raji: { name: "Raji: An Ancient Epic", item: "Steam Key Global", logo: "https://sm.ign.com/ign_in/cover/r/raji-an-an/raji-an-ancient-epic_te44.jpg", page: "raji-an-ancient-epic.html", description: "Raji: An Ancient Epic global Steam activation key delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Raji: An Ancient Epic Steam Key Global", amount: 200, originalAmount: 600 }] },
     assassinscreed2: { name: "Assassin's Creed II", item: "PC Ubisoft Connect Key", logo: "https://wallpapercave.com/wp/3U55bWo.jpg", page: "assassins-creed-2.html", description: "Assassin's Creed II activation key for Ubisoft Connect on PC, delivered after payment verification.", noGameId: true, bundles: [{ label: "Assassin's Creed II - PC (Ubisoft Connect)", amount: 520, originalAmount: 1083 }] },
     spiderman: { name: "Marvel's Spider-Man Remastered", item: "PC Steam Key", logo: "https://wallpapercave.com/wp/wp7593605.jpg", page: "spider-man-remastered.html", description: "Marvel's Spider-Man Remastered Steam key for PC, delivered after payment verification.", noGameId: true, bundles: [{ label: "Marvel's Spider-Man Remastered - PC (Steam)", amount: 2500, originalAmount: 3999 }] },
-    rdr2: { name: "Red Dead Redemption 2", item: "PC Activation Key", logo: "https://www.pngarts.com/files/9/Red-Dead-Redemption-Logo-PNG-Image-Transparent-Background.png", page: "rdr2.html", description: "Red Dead Redemption 2 activation key for PC, delivered after payment verification.", noGameId: true, bundles: [{ label: "Red Dead Redemption 2 - Standard Edition", amount: 2000, originalAmount: 3329 }, { label: "Red Dead Redemption 2 - Ultimate Edition", amount: 3000, originalAmount: 7699 }, { label: "Red Dead Redemption 2 - Special Edition", amount: 4000, originalAmount: 9037 }] }
+    rdr2: { name: "Red Dead Redemption 2", item: "Game Key", logo: "https://www.pngarts.com/files/9/Red-Dead-Redemption-Logo-PNG-Image-Transparent-Background.png", page: "rdr2.html", description: "Red Dead Redemption 2 game key for PC, delivered after payment verification.", noGameId: true, bundles: [{ label: "Red Dead Redemption 2 - Standard Edition", amount: 2000, originalAmount: 3329 }, { label: "Red Dead Redemption 2 - Ultimate Edition", amount: 3000, originalAmount: 7699 }, { label: "Red Dead Redemption 2 - Special Edition", amount: 4000, originalAmount: 9037 }] }
   }
 };
 
@@ -402,7 +407,7 @@ function readLocalOrders() {
   }
 }
 function navHtml(active) {
-  const nav = [["index", "Home", "index.html"], ["freefire", "Free Fire", "freefire.html"], ["bgmi", "BGMI", "bgmi.html"], ["pubg", "PUBG", "pubg.html"], ["valorant", "Valorant", "valorant.html"], ["minecraft", "Minecoins", "minecraft.html"], ["minecraftpc", "Minecraft PC", "minecraft-pc.html"], ["gta5", "GTA 5", "gta5.html"], ["carxstreet", "CarX Street", "carxstreet.html"], ["arcraiders", "ARC Raiders", "arc-raiders.html"], ["mafia2", "Mafia II", "mafia-2-deluxe-edition.html"], ["skyrim", "Skyrim", "skyrim-special-edition.html"], ["doometernal", "Doom Eternal", "doom-eternal.html"], ["darksouls", "Dark Souls", "dark-souls-remastered.html"], ["farcry4", "Far Cry 4", "far-cry-4.html"], ["gta6", "GTA 6", "gta6.html"], ["rdr2", "RDR 2", "rdr2.html"], ["assassinscreed2", "Assassin's Creed II", "assassins-creed-2.html"], ["fallout4", "Fallout 4", "fallout-4.html"], ["forza5", "Forza Horizon 5", "forza-horizon-5.html"], ["forza6", "Forza Horizon 6", "forza-horizon-6.html"], ["raji", "Raji", "raji-an-ancient-epic.html"], ["residentevil", "Resident Evil", "resident-evil-requiem.html"], ["spiderman", "Spider-Man", "spider-man-remastered.html"]];
+  const nav = [["index", "Home", "index.html"], ["freefire", "Free Fire", "freefire.html"], ["bgmi", "BGMI", "bgmi.html"], ["pubg", "PUBG", "pubg.html"], ["valorant", "Valorant", "valorant.html"], ["minecraft", "Minecoins", "minecraft.html"], ["minecraftpc", "Minecraft PC", "minecraft-pc.html"], ["gta5", "GTA 5", "gta5.html"], ["carxstreet", "CarX Street", "carxstreet.html"], ["arcraiders", "ARC Raiders", "arc-raiders.html"], ["mafia2", "Mafia II", "mafia-2-deluxe-edition.html"], ["mafia2gog", "Mafia II GOG", "mafia-2-deluxe-edition-gog.html"], ["skyrim", "Skyrim", "skyrim-special-edition.html"], ["doometernal", "Doom Eternal", "doom-eternal.html"], ["darksouls", "Dark Souls", "dark-souls-remastered.html"], ["farcry4", "Far Cry 4", "far-cry-4.html"], ["sekiro", "Sekiro", "sekiro-shadows-die-twice-goty.html"], ["lastofus1", "Last of Us I", "the-last-of-us-part-1.html"], ["lastofus2", "Last of Us II", "the-last-of-us-2-remastered.html"], ["gta6", "GTA 6", "gta6.html"], ["rdr2", "RDR 2", "rdr2.html"], ["assassinscreed2", "Assassin's Creed II", "assassins-creed-2.html"], ["fallout4", "Fallout 4", "fallout-4.html"], ["forza5", "Forza Horizon 5", "forza-horizon-5.html"], ["forza6", "Forza Horizon 6", "forza-horizon-6.html"], ["raji", "Raji", "raji-an-ancient-epic.html"], ["residentevil", "Resident Evil", "resident-evil-requiem.html"], ["spiderman", "Spider-Man", "spider-man-remastered.html"]];
   return nav.map(([key, label, href]) => `<a class="${active === key ? "active" : ""}" href="${href}">${label}</a>`).join("");
 }
 
@@ -560,6 +565,9 @@ function bundleSummary(bundle, apply) {
 export function initCatalogFilters() {
   const search = document.querySelector("[data-game-search]");
   const filterButtons = [...document.querySelectorAll("[data-game-filter]")];
+  const platformButtons = [...document.querySelectorAll("[data-platform-filter]")];
+  const platformToggle = document.querySelector("[data-platform-toggle]");
+  const platformPanel = document.querySelector("[data-platform-panel]");
   const cards = [...document.querySelectorAll(".game-grid .game-card")];
   const empty = document.querySelector("[data-catalog-empty]");
   if (!search || !filterButtons.length || !cards.length) return;
@@ -572,13 +580,20 @@ export function initCatalogFilters() {
     minecraft: "topup",
     minecraftpc: "key",
     gta5: "key",
+    gta4: "key",
     carxstreet: "key",
     arcraiders: "key",
     mafia2: "key",
+    mafia2gog: "key",
     skyrim: "key",
     doometernal: "key",
     darksouls: "key",
     farcry4: "key",
+    sekiro: "key",
+    lastofus1: "key",
+    lastofus2: "key",
+    rdr2: "key",
+    reddeadredemption2: "key",
     forza5: "key",
     forza6: "key",
     residentevil: "key",
@@ -587,12 +602,54 @@ export function initCatalogFilters() {
     assassinscreed2: "key",
     spiderman: "key"
   };
+  const platformCategories = {
+    gta5: "rockstar",
+    gta4: "steam",
+    rdr2: "rockstar",
+    reddeadredemption2: "rockstar",
+    carxstreet: "steam",
+    arcraiders: "steam",
+    mafia2: "steam",
+    mafia2gog: "gog",
+    skyrim: "steam",
+    doometernal: "steam",
+    lastofus1: "steam",
+    lastofus2: "steam",
+    fallout4: "steam",
+    raji: "steam",
+    spiderman: "steam",
+    darksouls: "xbox",
+    sekiro: "xbox",
+    residentevil: "xbox",
+    forza5: "xbox",
+    forza6: "xbox",
+    assassinscreed2: "ubisoft",
+    farcry4: "ubisoft",
+    minecraftpc: "microsoft",
+    minecraft: "microsoft"
+  };
   const requestedFilter = new URLSearchParams(window.location.search).get("filter");
   let activeFilter = ["all", "topup", "key"].includes(requestedFilter) ? requestedFilter : "all";
+  let activePlatform = "all";
 
   cards.forEach((card) => {
     const action = card.querySelector("[data-open-order]");
-    card.dataset.category = keyCategories[action?.dataset.openOrder] || "topup";
+    const key = action?.dataset.openOrder || "";
+    const text = card.textContent.toLowerCase();
+    const href = (card.querySelector("a[href]")?.getAttribute("href") || "").toLowerCase();
+    const lookupText = `${key} ${href} ${text}`;
+    if (!card.dataset.category) {
+      card.dataset.category = keyCategories[key] || (lookupText.includes("topup") || lookupText.includes("uc packs") || lookupText.includes("diamond") ? "topup" : "key");
+    }
+    if (!card.dataset.platform) {
+      card.dataset.platform = platformCategories[key]
+        || (lookupText.includes("rockstar") || lookupText.includes("gta5") || lookupText.includes("rdr2") || lookupText.includes("red-dead") ? "rockstar"
+          : lookupText.includes("ubisoft") || lookupText.includes("far-cry") || lookupText.includes("assassin") ? "ubisoft"
+          : lookupText.includes("xbox") || lookupText.includes("forza") || lookupText.includes("dark-souls") || lookupText.includes("sekiro") || lookupText.includes("resident") ? "xbox"
+          : lookupText.includes("microsoft") || lookupText.includes("minecraft-pc") ? "microsoft"
+          : lookupText.includes("steam") || lookupText.includes("gta4") || lookupText.includes("gta-iv") || lookupText.includes("gta-4") || lookupText.includes("carxstreet") || lookupText.includes("arc-raiders") || lookupText.includes("mafia") || lookupText.includes("skyrim") || lookupText.includes("doom") || lookupText.includes("fallout") || lookupText.includes("raji") || lookupText.includes("spider") || lookupText.includes("last-of-us") ? "steam"
+          : "");
+    }
   });
 
   const apply = () => {
@@ -601,7 +658,8 @@ export function initCatalogFilters() {
     cards.forEach((card) => {
       const matchesText = !query || card.textContent.toLowerCase().includes(query);
       const matchesFilter = activeFilter === "all" || card.dataset.category === activeFilter;
-      const show = matchesText && matchesFilter;
+      const matchesPlatform = activePlatform === "all" || card.dataset.platform === activePlatform;
+      const show = matchesText && matchesFilter && matchesPlatform;
       card.hidden = !show;
       if (show) visible += 1;
     });
@@ -618,6 +676,33 @@ export function initCatalogFilters() {
     });
     apply();
   }));
+
+  platformToggle?.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const expanded = platformToggle.getAttribute("aria-expanded") === "true";
+    platformToggle.setAttribute("aria-expanded", String(!expanded));
+    if (platformPanel) platformPanel.hidden = expanded;
+  });
+
+  platformButtons.forEach((button) => button.addEventListener("click", () => {
+    activePlatform = button.dataset.platformFilter || "all";
+    platformButtons.forEach((item) => {
+      const selected = item === button;
+      item.classList.toggle("active", selected);
+      item.setAttribute("aria-pressed", String(selected));
+    });
+    if (platformPanel) platformPanel.hidden = true;
+    platformToggle?.setAttribute("aria-expanded", "false");
+    apply();
+  }));
+
+  document.addEventListener("click", (event) => {
+    if (!platformPanel || !platformToggle || platformPanel.hidden) return;
+    if (platformPanel.contains(event.target) || platformToggle.contains(event.target)) return;
+    platformPanel.hidden = true;
+    platformToggle.setAttribute("aria-expanded", "false");
+  });
 
   filterButtons.forEach((button) => {
     const selected = button.dataset.gameFilter === activeFilter;
