@@ -412,9 +412,19 @@ function readLocalOrders() {
     return [];
   }
 }
-function navHtml(active) {
-  const nav = [["index", "Home", "index.html"], ["freefire", "Free Fire", "freefire.html"], ["bgmi", "BGMI", "bgmi.html"], ["pubg", "PUBG", "pubg.html"], ["valorant", "Valorant", "valorant.html"], ["minecraft", "Minecoins", "minecraft.html"], ["minecraftpc", "Minecraft PC", "minecraft-pc.html"], ["gta5", "GTA 5", "gta5.html"], ["carxstreet", "CarX Street", "carxstreet.html"], ["arcraiders", "ARC Raiders", "arc-raiders.html"], ["mafia2", "Mafia II", "mafia-2-deluxe-edition.html"], ["mafia2gog", "Mafia II GOG", "mafia-2-deluxe-edition-gog.html"], ["skyrim", "Skyrim", "skyrim-special-edition.html"], ["doometernal", "Doom Eternal", "doom-eternal.html"], ["darksouls", "Dark Souls", "dark-souls-remastered.html"], ["farcry4", "Far Cry 4", "far-cry-4.html"], ["sekiro", "Sekiro", "sekiro-shadows-die-twice-goty.html"], ["lastofus1", "Last of Us I", "the-last-of-us-part-1.html"], ["lastofus2", "Last of Us II", "the-last-of-us-2-remastered.html"], ["gta6", "GTA 6", "gta6.html"], ["rdr2", "RDR 2", "rdr2.html"], ["assassinscreed2", "Assassin's Creed II", "assassins-creed-2.html"], ["fallout4", "Fallout 4", "fallout-4.html"], ["forza5", "Forza Horizon 5", "forza-horizon-5.html"], ["forza6", "Forza Horizon 6", "forza-horizon-6.html"], ["raji", "Raji", "raji-an-ancient-epic.html"], ["residentevil", "Resident Evil", "resident-evil-requiem.html"], ["spiderman", "Spider-Man", "spider-man-remastered.html"]];
-  return nav.map(([key, label, href]) => `<a class="${active === key ? "active" : ""}" href="${href}">${label}</a>`).join("");
+function navHtml(active, isLoggedIn = false) {
+  const nav = [
+    ["index", "Home", "index.html", ""],
+    ["games", "Games", "index.html#games", ""],
+    ["orders", "Your Order", "#", "data-your-orders"],
+    ["redeem", "Redeem UT coins", "#", "data-redeem"]
+  ];
+  const links = nav.map(([key, label, href, attr]) => {
+    const extra = attr ? ` ${attr}` : "";
+    return `<a class="${active === key ? "active" : ""}" href="${href}"${extra}>${label}</a>`;
+  }).join("");
+  const logout = isLoggedIn ? '<a href="#" data-logout>Logout</a>' : "";
+  return links + logout;
 }
 
 function isDigitalGameKey(game) {
@@ -429,13 +439,12 @@ function isDigitalKeyOrder(order) {
 }
 
 function menuHtml(active, isLoggedIn = false) {
-  const orders = isLoggedIn ? '<button type="button" class="menu-orders" data-your-orders>Your Orders</button>' : "";
+  const orders = isLoggedIn ? '<button type="button" class="menu-orders" data-your-orders>Your Order</button>' : "";
   const logout = isLoggedIn ? '<button type="button" class="menu-logout" data-logout>Logout</button>' : "";
   return `<div class="mobile-menu-panel" data-mobile-menu>
     <a class="${active === "index" ? "active" : ""}" href="index.html">Home</a>
-    <a href="index.html?filter=topup#games">Game Topup</a>
-    <a href="index.html?filter=key#games">Game Key</a>
-    ${orders}${logout}
+    <a href="index.html#games">Games</a>
+    ${orders}<button type="button" class="menu-orders" data-redeem>Redeem UT coins</button>${logout}
   </div>`;
 }
 
@@ -452,7 +461,7 @@ function profileAvatar(user, label) {
 
 function headerShell(active, authHtml) {
   const isLoggedIn = /data-logout/.test(authHtml);
-  return `<div class="page-shell navbar"><button class="menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button><a class="brand" href="index.html"><span class="brand-mark">UT</span><span class="brand-text"><strong>Unlimited Topup</strong><span>Independent digital game store</span></span></a><nav class="nav-links desktop-nav">${navHtml(active)}</nav><div class="auth-area">${authHtml}</div>${menuHtml(active, isLoggedIn)}</div>`;
+  return `<div class="page-shell navbar"><button class="menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button><a class="brand" href="index.html"><span class="brand-mark">UT</span><span class="brand-text"><strong>Unlimited Topup</strong><span>Independent digital game store</span></span></a><nav class="nav-links desktop-nav">${navHtml(active, isLoggedIn)}</nav><div class="auth-area">${authHtml}</div>${menuHtml(active, isLoggedIn)}</div>`;
 }
 
 function bindSignOut(header) {
@@ -463,7 +472,7 @@ function bindSignOut(header) {
 
 function bindYourOrders(header) {
   header.querySelectorAll("[data-your-orders]").forEach((button) => {
-    button.addEventListener("click", () => showYourOrdersModal());
+    button.addEventListener("click", (event) => { event.preventDefault(); showYourOrdersModal(); });
   });
 }
 
@@ -476,7 +485,7 @@ function bindMobileMenu(header) {
     const open = header.classList.toggle("menu-open");
     toggle.setAttribute("aria-expanded", String(open));
   });
-  panel.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => header.classList.remove("menu-open")));
+  panel.querySelectorAll("a, button").forEach((link) => link.addEventListener("click", () => header.classList.remove("menu-open")));
   document.addEventListener("click", (event) => {
     if (!header.contains(event.target)) header.classList.remove("menu-open");
   });
@@ -591,6 +600,9 @@ export function initCatalogFilters() {
     arcraiders: "key",
     pragmata: "key",
     pragmatadeluxe: "key",
+    crewmotorfeststandard: "key",
+    crewmotorfestdeluxe: "key",
+    crewmotorfestultimate: "key",
     mafia2: "key",
     mafia2gog: "key",
     skyrim: "key",
@@ -619,6 +631,9 @@ export function initCatalogFilters() {
     arcraiders: "steam",
     pragmata: "steam",
     pragmatadeluxe: "steam",
+    crewmotorfeststandard: "ubisoft",
+    crewmotorfestdeluxe: "ubisoft",
+    crewmotorfestultimate: "ubisoft",
     mafia2: "steam",
     mafia2gog: "gog",
     skyrim: "steam",
@@ -638,7 +653,8 @@ export function initCatalogFilters() {
     minecraftpc: "microsoft",
     minecraft: "microsoft"
   };
-  const requestedFilter = new URLSearchParams(window.location.search).get("filter");
+  const requestedFilterRaw = (new URLSearchParams(window.location.search).get("filter") || "").toLowerCase();
+  const requestedFilter = requestedFilterRaw === "game-topup" || requestedFilterRaw === "gametopup" ? "topup" : (requestedFilterRaw === "game-keys" || requestedFilterRaw === "gamekeys" ? "key" : requestedFilterRaw);
   let activeFilter = ["all", "topup", "key"].includes(requestedFilter) ? requestedFilter : "all";
   let activePlatform = "all";
 
@@ -667,25 +683,49 @@ export function initCatalogFilters() {
     let visible = 0;
     cards.forEach((card) => {
       const matchesText = !query || card.textContent.toLowerCase().includes(query);
-      const matchesFilter = activeFilter === "all" || card.dataset.category === activeFilter;
+      const matchesFilter = activeFilter === "all" || card.dataset.category === activeFilter || card.dataset.gameCategory === activeFilter;
       const matchesPlatform = activePlatform === "all" || card.dataset.platform === activePlatform;
       const show = matchesText && matchesFilter && matchesPlatform;
       card.hidden = !show;
+      card.style.display = show ? "" : "none";
       if (show) visible += 1;
+    });
+    document.querySelectorAll(".game-grid").forEach((grid) => {
+      const section = grid.closest("section");
+      if (!section || section.id === "games") return;
+      const hasVisibleCard = [...grid.querySelectorAll(".game-card")].some((card) => !card.hidden && card.style.display !== "none");
+      section.hidden = activeFilter === "topup" ? true : !hasVisibleCard;
+      section.style.display = section.hidden ? "none" : "";
     });
     if (empty) empty.hidden = visible !== 0;
   };
 
   search.addEventListener("input", apply);
   filterButtons.forEach((button) => button.addEventListener("click", () => {
-    activeFilter = button.dataset.gameFilter;
+    selectCategory(button.dataset.gameFilter || "all", false);
+  }));
+  function selectCategory(nextFilter, updateUrl = true) {
+    activeFilter = ["all", "topup", "key"].includes(nextFilter) ? nextFilter : "all";
     filterButtons.forEach((item) => {
-      const selected = item === button;
+      const selected = item.dataset.gameFilter === activeFilter;
       item.classList.toggle("active", selected);
       item.setAttribute("aria-pressed", String(selected));
     });
+    if (updateUrl && activeFilter !== "all") {
+      history.replaceState(null, "", `index.html?filter=${activeFilter}#games`);
+    }
     apply();
-  }));
+    document.getElementById("games")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest('a[href*="filter=topup"], a[href*="filter=key"]');
+    if (!link || !document.getElementById("games")) return;
+    event.preventDefault();
+    const href = new URL(link.getAttribute("href"), window.location.href);
+    selectCategory(href.searchParams.get("filter") || "all");
+  });
+
 
   platformToggle?.addEventListener("click", (event) => {
     event.preventDefault();
@@ -741,7 +781,8 @@ export function initOrderModal() {
     const selected = game.bundles[Number(bundle.value)];
     summary.textContent = bundleSummary(selected, game.noGameId ? true : offer.checked);
   };
-  document.querySelectorAll("[data-open-order]").forEach((button) => button.addEventListener("click", async () => {
+  document.querySelectorAll("[data-open-order]").forEach((button) => buttons.forEach((button) => button.addEventListener("click", async (event) => {
+    event.preventDefault();
     if (!(await requireLogin())) return;
     currentKey = button.dataset.openOrder;
     const game = TopupData.games[currentKey];
@@ -963,8 +1004,8 @@ export function initRdr2Page(gameKey) {
 }
 
 export function initRedeem() {
-  const button = document.querySelector("[data-redeem]");
-  if (!button) return;
+  const buttons = document.querySelectorAll("[data-redeem]");
+  if (!buttons.length) return;
   const rewards = [
     { coins: 300, value: 5 }, { coins: 600, value: 10 }, { coins: 900, value: 15 },
     { coins: 1200, value: 20 }, { coins: 1500, value: 25 }, { coins: 1800, value: 30 },
@@ -972,7 +1013,8 @@ export function initRedeem() {
   ];
   const redeemImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9fmWCNiCKZE3WjAsFAWneSLmBNl_J7K3FczQXzqvkwQ&s=10";
 
-  button.addEventListener("click", async () => {
+  buttons.forEach((button) => button.addEventListener("click", async (event) => {
+    event.preventDefault();
     if (!(await requireLogin())) return;
     const visibleBalance = Number.parseInt(document.querySelector("[data-points]")?.textContent || "0", 10) || 0;
     const modal = document.createElement("div");
@@ -1071,7 +1113,7 @@ export function initRedeem() {
         }
       }
     });
-  });
+  }));
 }
 
 function showOrderSubmittedPopup() {
