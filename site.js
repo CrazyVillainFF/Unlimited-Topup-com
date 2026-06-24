@@ -781,7 +781,7 @@ export function initOrderModal() {
     const selected = game.bundles[Number(bundle.value)];
     summary.textContent = bundleSummary(selected, game.noGameId ? true : offer.checked);
   };
-  document.querySelectorAll("[data-open-order]").forEach((button) => buttons.forEach((button) => button.addEventListener("click", async (event) => {
+  document.querySelectorAll("[data-open-order]").forEach((button) => button.addEventListener("click", async (event) => {
     event.preventDefault();
     if (!(await requireLogin())) return;
     currentKey = button.dataset.openOrder;
