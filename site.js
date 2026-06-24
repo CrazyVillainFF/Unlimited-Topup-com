@@ -52,6 +52,12 @@ export const TopupData = {
     raji: { name: "Raji: An Ancient Epic", item: "Steam Key Global", logo: "https://sm.ign.com/ign_in/cover/r/raji-an-an/raji-an-ancient-epic_te44.jpg", page: "raji-an-ancient-epic.html", description: "Raji: An Ancient Epic global Steam activation key delivered to your active email after payment verification.", noGameId: true, bundles: [{ label: "Raji: An Ancient Epic Steam Key Global", amount: 200, originalAmount: 600 }] },
     assassinscreed2: { name: "Assassin's Creed II", item: "PC Ubisoft Connect Key", logo: "https://wallpapercave.com/wp/3U55bWo.jpg", page: "assassins-creed-2.html", description: "Assassin's Creed II activation key for Ubisoft Connect on PC, delivered after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Ubisoft Account Name", accountNamePlaceholder: "Enter your Ubisoft account name", bundles: [{ label: "Assassin's Creed II - PC (Ubisoft Connect)", amount: 520, originalAmount: 1083 }] },
     spiderman: { name: "Marvel's Spider-Man Remastered", item: "PC Steam Key", logo: "https://wallpapercave.com/wp/wp7593605.jpg", page: "spider-man-remastered.html", description: "Marvel's Spider-Man Remastered Steam key for PC, delivered after payment verification.", noGameId: true, bundles: [{ label: "Marvel's Spider-Man Remastered - PC (Steam)", amount: 2500, originalAmount: 3999 }] },
+
+    pragmata: { name: "PRAGMATA", item: "PC Steam Key", logo: "https://4kwallpapers.com/images/walls/thumbs_3t/24943.jpg", page: "pragmata.html", description: "PRAGMATA (PC) Steam key delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Steam Account Name", accountNamePlaceholder: "Enter your Steam account name", bundles: [{ label: "PRAGMATA (PC) Steam Key", amount: 3300, originalAmount: 3799 }] },
+    pragmatadeluxe: { name: "PRAGMATA Deluxe Edition", item: "PC Steam Key", logo: "https://gaming-cdn.com/images/products/22158/616x353/pragmata-deluxe-edition-xbox-series-x-s-microsoft-store-cover.jpg?v=1777027564", page: "pragmata-deluxe-edition.html", description: "PRAGMATA Deluxe Edition (PC) Steam key delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Steam Account Name", accountNamePlaceholder: "Enter your Steam account name", bundles: [{ label: "PRAGMATA Deluxe Edition (PC) Steam Key", amount: 3600, originalAmount: 4399 }] },
+    crewmotorfeststandard: { name: "The Crew Motorfest Standard Edition", item: "Ubisoft Connect Key", logo: "https://4kwallpapers.com/images/walls/thumbs_3t/11730.jpg", page: "the-crew-motorfest-standard-edition.html", description: "The Crew Motorfest Standard Edition Ubisoft Connect Key delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Ubisoft Connect Account Name", accountNamePlaceholder: "Enter your Ubisoft Connect account name", bundles: [{ label: "The Crew Motorfest Standard Edition Ubisoft Connect Key", amount: 1300, originalAmount: 3999 }] },
+    crewmotorfestdeluxe: { name: "The Crew Motorfest Deluxe Edition", item: "Ubisoft Connect Key", logo: "https://gpstatic.com/acache/68/81/2/us/t620x300-42735298cdb7615f7c6c5424a9ead976.jpg", page: "the-crew-motorfest-deluxe-edition.html", description: "The Crew Motorfest Deluxe Edition Ubisoft Connect Key delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Ubisoft Connect Account Name", accountNamePlaceholder: "Enter your Ubisoft Connect account name", bundles: [{ label: "The Crew Motorfest Deluxe Edition Ubisoft Connect Key", amount: 2100, originalAmount: 5699 }] },
+    crewmotorfestultimate: { name: "The Crew Motorfest Ultimate Edition", item: "Ubisoft Connect Key", logo: "https://image.api.playstation.com/vulcan/ap/rnd/202509/2416/730a1fb8747a1a442d54ac7b6c2a1540d3fb6a71716209ce.jpg?w=1920&thumb=false", page: "the-crew-motorfest-ultimate-edition.html", description: "The Crew Motorfest Ultimate Edition Ubisoft Connect Key delivered to your active email after payment verification.", noGameId: true, requiresAccountName: true, accountNameLabel: "Ubisoft Connect Account Name", accountNamePlaceholder: "Enter your Ubisoft Connect account name", bundles: [{ label: "The Crew Motorfest Ultimate Edition Ubisoft Connect Key", amount: 3000, originalAmount: 8399 }] },
     rdr2: { name: "Red Dead Redemption 2", item: "Game Key", logo: "https://www.pngarts.com/files/9/Red-Dead-Redemption-Logo-PNG-Image-Transparent-Background.png", page: "rdr2.html", description: "Red Dead Redemption 2 game key for PC, delivered after payment verification.", noGameId: true, bundles: [{ label: "Red Dead Redemption 2 - Standard Edition", amount: 2000, originalAmount: 3329 }, { label: "Red Dead Redemption 2 - Ultimate Edition", amount: 3000, originalAmount: 7699 }, { label: "Red Dead Redemption 2 - Special Edition", amount: 4000, originalAmount: 9037 }] }
   }
 };
@@ -583,6 +589,8 @@ export function initCatalogFilters() {
     gta4: "key",
     carxstreet: "key",
     arcraiders: "key",
+    pragmata: "key",
+    pragmatadeluxe: "key",
     mafia2: "key",
     mafia2gog: "key",
     skyrim: "key",
@@ -609,6 +617,8 @@ export function initCatalogFilters() {
     reddeadredemption2: "rockstar",
     carxstreet: "steam",
     arcraiders: "steam",
+    pragmata: "steam",
+    pragmatadeluxe: "steam",
     mafia2: "steam",
     mafia2gog: "gog",
     skyrim: "steam",
@@ -647,7 +657,7 @@ export function initCatalogFilters() {
           : lookupText.includes("ubisoft") || lookupText.includes("far-cry") || lookupText.includes("assassin") ? "ubisoft"
           : lookupText.includes("xbox") || lookupText.includes("forza") || lookupText.includes("dark-souls") || lookupText.includes("sekiro") || lookupText.includes("resident") ? "xbox"
           : lookupText.includes("microsoft") || lookupText.includes("minecraft-pc") ? "microsoft"
-          : lookupText.includes("steam") || lookupText.includes("gta4") || lookupText.includes("gta-iv") || lookupText.includes("gta-4") || lookupText.includes("carxstreet") || lookupText.includes("arc-raiders") || lookupText.includes("mafia") || lookupText.includes("skyrim") || lookupText.includes("doom") || lookupText.includes("fallout") || lookupText.includes("raji") || lookupText.includes("spider") || lookupText.includes("last-of-us") ? "steam"
+          : lookupText.includes("steam") || lookupText.includes("gta4") || lookupText.includes("gta-iv") || lookupText.includes("gta-4") || lookupText.includes("carxstreet") || lookupText.includes("arc-raiders") || lookupText.includes("pragmata") || lookupText.includes("mafia") || lookupText.includes("skyrim") || lookupText.includes("doom") || lookupText.includes("fallout") || lookupText.includes("raji") || lookupText.includes("spider") || lookupText.includes("last-of-us") ? "steam"
           : "");
     }
   });
